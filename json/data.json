@@ -1,0 +1,91 @@
+[
+  {
+    "name": "Vera",
+    "animal": "Perra",
+    "sexo": "Hembra",
+    "edad": "13 años",
+    "descripcion": "Vera es una adorable abuelita que se encuentra muy en forma para su edad. En casa se comporta de maravilla y se adapta con mucha facilidad a nuevas rutinas. Convive perfectamente con otros perros.",
+    "image": "imgs/Vera_01.jpg"
+  },
+  {
+    "name": "Anuar",
+    "animal": "Perro",
+    "sexo": "Macho",
+    "edad": "8 meses",
+    "descripcion": "Anuar es un cachorrón noble y encantador. Algo brutote y torpón, lo que le hace aún más dulce y tierno. Se lleva genial con otros perros, es sumiso y muy sociable, hace amigos con facilidad.",
+    "image": "imgs/Anuar_01.jpg"
+  },
+  {
+    "name": "Mustang",
+    "animal": "Perro",
+    "sexo": "Macho",
+    "edad": "1 año",
+    "descripcion": "Mustang todo lo que tiene de grande lo tiene de entrañable y cariñoso. Le encanta disfrutar de los mimos que los voluntari@s le dan a diario y le encanta salir de paseo. Convive perfectamente con otros perros.",
+    "image": "imgs/Mustang_01.jpg"
+  },
+  {
+    "name": "Sombra",
+    "animal": "Perra",
+    "sexo": "Hembra",
+    "edad": "2 años",
+    "descripcion": "Sombra busca una familia que la adopte. Tiene muy buen carácter, sociable con otros perros y con niños, con los que ahora mismo convive. Es alegre y agradecida, una perra muy noble.",
+    "image": "imgs/Sombra_01.jpg"
+  },
+  {
+    "name": "Trueno",
+    "animal": "Gato",
+    "sexo": "Macho",
+    "edad": "1 año",
+    "descripcion": "A Trueno le rescatamos de la calle cuando tan solo era siendo un diminuto y enfermo bebé, Tenía una hernia diafragmática que si no hubiéramos operado le hubiera matado.",
+    "image": "imgs/Trueno_01.jpg"
+  },
+  {
+    "name": "Lola",
+    "animal": "Gata",
+    "sexo": "Hembra",
+    "edad": "1 año",
+    "image": "imgs/1_758_LALA_ACUNR_2.jpg"
+  },
+  {
+    "name": "Bimba",
+    "animal": "Gata",
+    "sexo": "Hembra",
+    "edad": "1 año",
+    "image": "imgs/Bimba.jpg"
+  },
+  {
+    "name": "Balu",
+    "animal": "Gato",
+    "sexo": "Macho",
+    "edad": "1 año",
+    "image": "imgs/Balu.jpg"
+  },
+  {
+    "name": "Cancán",
+    "animal": "Roedor",
+    "sexo": "Hembra",
+    "edad": "1 año",
+    "image": "imgs/Cancan.jpg"
+  },
+  {
+    "name": "Malinche",
+    "animal": "Roedor",
+    "sexo": "Macho",
+    "edad": "1 año",
+    "image": "imgs/Malinche.jpg"
+  },
+  {
+    "name": "Casilda",
+    "animal": "Roedor",
+    "sexo": "Hembra",
+    "edad": "2 año",
+    "image": "imgs/Casilda.jpg"
+  },
+  {
+    "name": "Linux",
+    "animal": "Roedor",
+    "sexo": "Macho",
+    "edad": "2 año",
+    "image": "imgs/Linux.jpg"
+  }
+]
