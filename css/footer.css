@@ -1,0 +1,259 @@
+/*FOOTER*/
+.footer {
+    width: 100%;
+    background-color: #5B8869;
+    position: relative;
+    bottom: -250%;
+}
+
+/*grupo1*/
+.footer .grupo1 {
+    width: 100%;
+    max-width: 1200px;
+    /*aqui le hacemos una refencia al responsive, q su ancho con la siguiente distribucion esta en un max de 1200*/
+    margin: auto;
+    display: grid;
+    /*dividimos el grupo1 del footer(parte de arriab en 3 columnas para poder distribuit bien la info*/
+    grid-template-columns: 0.7fr 1.1fr 1fr;
+    grid-gap: 50px;
+    padding: 45px 0px;
+
+}
+
+.footer .grupo1 .box figure {
+    /*en la etiqueta figure esta el logo, aqui editamos la caja q contiene la img*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .grupo1 .box figure img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.footer .grupo1 .box h6 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.footer .grupo1 .box p {
+    color: #efefef;
+    margin-bottom: 8px;
+}
+
+/*FORMULARIO INICIO DE SESION*/
+.footer .grupo1 .box3 .arriba .form-main {
+    border-color: #395d44;
+    border-radius: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0%;
+    width: 250px;
+}
+
+.footer .grupo1 .box3 .arriba .form-contenedor .input-box {
+    margin-bottom: 20px;
+    color: white;
+    /*background-color: red; */
+}
+
+.form-contenedor .inputsUsuario {
+    display: block;
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 12px;
+    /* border-bottom: 1px solid whitesmoke; */
+    font-weight: 500;
+    font-size: 16px;
+}
+
+::placeholder {
+    /*esto es lo que se encuentra dentro de los campos q el usuario puede rellenar*/
+    color: white;
+    padding-left: 5%;
+}
+
+.form-contenedor .inputsUsuario:focus {
+    /*para que cuando hagamos click sobre el campo a rellenar
+        que NO se nos coja el borde en negro que por defecto se
+        nos pone cuando hacemos clik*/
+    outline: none;
+}
+
+.form-contenedor .btn {
+    height: 38px;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 4%;
+    margin-top: 6%;
+    border-radius: 13px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.comentarios .btn {
+    height: 38px;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 4%;
+    margin-top: 6%;
+    border-radius: 13px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+
+
+
+
+.footer .grupo1 .box3 h6 {
+    /*box3 es la tercera parte del grid*/
+    color: #ffffff;
+    font-size: 20px;
+    margin: 35px 0px 15px 30px;
+}
+
+.footer .grupo1 .redSocial a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #ffffff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+    border-radius: 15px;
+}
+
+.footer .grupo1 .redSocial a:hover {
+    color: #5B8869;
+}
+
+/*grupo2*/
+.footer .grupo2 {
+    background-color: #395d44;
+    padding: 15px 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer .grupo2 small {
+    font-size: 15px;
+}
+
+
+
+/*TAMAÑO MOVIL*/
+@media only screen and (max-width: 766px) {
+    
+    .footer .grupo1 {
+        width: 100%;
+        max-width: 766px;
+        /*aqui le hacemos una refencia al responsive*/
+        margin: auto;
+        display: grid;
+        /*dividimos el grupo1 del footer(parte de arriab en 3 columnas para poder distribuit bien la info*/
+        grid-template-columns: 0.2fr 2fr 2fr;
+        grid-gap: 10px;
+        padding: 20px 0px;
+    }
+
+    .footer .grupo1 .box figure {
+        /*el contenedor dnd se encuentra el logo*/
+        display: none;
+    }
+
+    .footer .grupo1 .box figure img {
+        display: none;
+    }
+
+    .footer .grupo1 .box {
+        /*create una cuenta*/
+        margin-top: 35px;
+    }
+
+    /*dividimos horizontalmente el tercer frame del grid (box3), para poner el inicio de sesion y las redes*/
+    .footer .grupo1 .box3 {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        /*dividimos la tercera columna en dos filas para poder posicionar los elementos*/
+        text-align: center;
+    }
+
+    .footer .grupo1 .box3 .arriba {
+        display: block;
+    }
+
+    .footer .grupo1 .box3 .abajo {
+        margin-top: 5px;
+    }
+
+    .footer .grupo1 .box3 .abajo h2 {
+        /*box3 es la tercera parte del grid*/
+        color: #ffffff;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .footer .grupo1 .box3 .abajo .redSocial a {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 15px;
+        justify-content: center;
+        color: #ffffff;
+        /*margin-right: 10px;*/
+        background-color: #89a1ba;
+        text-align: center;
+        transition: all 300ms ease;
+        margin-bottom: 0;
+    }
+
+    form {
+        width: 90%;
+        margin-left: 10%;
+        margin-top: 23%;
+    }
+
+    .form-contenedor {
+        width: 85%;
+    }
+
+    .footer .grupo1 .box3 .arriba .form-main {
+        border-color: #395d44;
+        border-radius: 5%;
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 0%;
+        width: 100%;
+    }
+
+    .form-contenedor .btn {
+        height: 38px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 4%;
+        margin-top: 8%;
+        border-radius: 13px;
+        cursor: pointer;
+        border: 1px solid white;
+    }
+
+    .footer .grupo1 .box3 h6 {
+        color: #ffffff;
+        font-size: 20px;
+        margin-left: -2%;
+        margin-top: -6%;
+    }
+
+}
