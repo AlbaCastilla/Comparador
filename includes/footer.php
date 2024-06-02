@@ -32,7 +32,7 @@
                             </form>
 
                                 <div class="input-box">
-                                    <a href="login.php" class="btn">Iniciar Sesión</a>
+                                    <a href="login.php" ><button class="btn-inicioSesion" >Iniciar Sesión</button></a>
                                 </div>
                         
                         </div>
