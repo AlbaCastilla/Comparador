@@ -18,9 +18,7 @@
 
     <!--SLIDER IMÁGENES-->
 
-    <div id="res">
-
-    </div>
+    <div id="res"></div>
 
     <!--TEXTO COLABORA-->
 
@@ -54,7 +52,6 @@
                 <img src="imgs/protectora-cuidando-animales (1).jpeg" alt="">
                 <img src="imgs/ADOPCION-DE-MASCOTAS-SUGERENCIAS (1).jpg" alt="" class="background-img">
             </div>
-
         </div>
 
         <div class="contenedorTexto">
@@ -74,7 +71,6 @@
                 <p class="texto4">La prevención es fundamental en nuestra lucha por detener el sufrimiento animal. Con tus donaciones, podemos llevar a cabo programas de esterilización masiva para controlar la población de animales sin hogar y educar a la comunidad sobre la importancia del cuidado responsable de los animales.</p>
             </div>
         </div>
-
     </div>
 
     <!--BOTÓN CONOCER-->
@@ -91,52 +87,10 @@
         <div class="despues"></div>
     </div>
 
-
-    <!-- CAJA ANIMAL 1
-    <div id="contenedor"></div>
-
-    <div id="overlay" class="oculto"></div>
-
-
-    <div id="ventana-emergente" class="oculto">
-        <div id="contenido-ventana">
-            <span class="cerrar">&times;</span>
-            <div class="informacion-titulo">
-                <h3>Información del animal</h3>
-            </div>
-            <div class="animal-info">
-                <img id="animal-img" src="" alt="Imagen del Animal">
-                <div class="NombreAnimal">
-                    <h4>Nombre del Animal:</h4>
-                </div>
-                <p id="animal-nombre"></p>
-                <div class="TipoAnimal">
-                    <h4>Tipo de Animal:</h4>
-                </div>
-                <p id="animal-tipo"></p>
-                <div class="SexoAnimal">
-                    <h4>Sexo de Animal:</h4>
-                </div>
-                <p id="animal-sexo"></p>
-                <div class="EdadAnimal">
-                    <h4>Edad de Animal:</h4>
-                </div>
-                <p id="animal-edad"></p>
-                <div class="DescripcionAnimal">
-                    <h4>Conóceme:</h4>
-                </div>
-                <p id="animal-descripcion"></p>
-
-            </div>
-        </div>
-    </div>
-
-    -->
-
     <!--CAJAS SLIDER-->
 
     <div id="contenedorFormOrdenador">
-        <button id="anterior">Anterior</button>
+        <span id="anterior" class="flecha">&larr;</span>
 
         <div class="container">
             <div class="animal-info carrusel active">
@@ -224,10 +178,8 @@
             </div>
         </div>
 
-        <button id="siguiente">Siguiente</button>
+        <span id="siguiente" class="flecha">&rarr;</span>
     </div>
-
-
 
     <?php
     include "includes/footer.php";
