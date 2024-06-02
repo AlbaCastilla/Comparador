@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+}
+.form-container {
+    background: #fff;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    background-color: white;
+}
+.form-container .h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: black;
+    margin-top: 2%;
+    margin-right: 50px; /* Añade un margen derecho */
+}
+.form-container .li {
+    list-style: none;
+    margin-bottom: 15px;
+}
+.form-container .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #403f3f;
+}
+.form-container .input-text,
+.form-container .select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container .labelCheckbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.form-container .labelCheckbox .input {
+    margin-right: 10px;
+}
+.form-container .textCheckbox {
+    font-weight: normal;
+}
+.form-container .fileInputContainer {
+    margin-top: 10px;
+    display: none;
+}
+.form-container .submit-button-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+}
+.form-container .submit-button {
+    background-color: rgba(81, 130, 95, 0.984);
+    margin-top: 3%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.215);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-container .submit-button:hover {
+    background-color: rgba(45, 72, 53, 0.984);
+}
+.message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.comments-container {
+    border: 1px solid black;
+    margin: 2%;
+}
+.contenedorComentarios {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 10px; /* Espacio entre los comentarios */
+    margin-top: 2%;
+}
+
+.comments-container {
+    display: flex; /* Flex para alinear imagen y texto */
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border: 1px solid rgb(162, 161, 161);
+    background-color:  rgba(81, 130, 95, 0.5);
+    gap: 15px;
+    align-items: center; /* Centra los elementos verticalmente */
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan y ajusten a la línea siguiente */
+    word-wrap: break-word;
+    width: 95%;
+    box-sizing: border-box; /* Incluye el padding y borde en el tamaño total */
+    max-height: auto; /* Limita la altura máxima del contenedor */
+    overflow: hidden; /* Oculta el contenido desbordado */
+    position: relative; /* Necesario para el botón de "Leer más" */
+}
+
+.comment-image {
+    display: flex;
+    align-items: center; /* Centra la imagen verticalmente */
+    justify-content: center; /* Centra la imagen horizontalmente */
+}
+
+.comment-image img {
+    width: auto;
+    height: 100px;
+    object-fit: cover;
+}
+
+.comment-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan y ajusten a la línea siguiente */
+    word-wrap: break-word;
+    max-height: auto; /* Limita la altura máxima del texto */
+    overflow: hidden; /* Oculta el contenido desbordado */
+    width: 100%;
+}
+
+.comment-text .p {
+    margin: 0;
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan y ajusten a la línea siguiente */
+    word-wrap: break-word;
+}
+
+.read-more {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    display: none;
+}
+
+.comments-container.expanded .comment-text {
+    max-height: none;
+    overflow: visible;
+}
+
+.comments-container.expanded .read-more {
+    display: none;
+}
+
+.comments-container .read-more {
+    display: block;
+}
+
+.estrella-container {
+    display: flex;
+    align-items: center;
+}
+
+.estrella-container .estrella {
+    margin-left: 5px; /* Espacio entre el número y la estrella */
+}
+
+.estrella-container .estrella img {
+    width: 20px; /* Tamaño de la estrella */
+    height: auto;
+}
+
+.moveLeft {
+    text-align: right;
+}
+
+.load-more {
+    display: block;
+    margin: 20px auto;
+    background-color: rgba(81, 130, 95, 0.984);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.load-more:hover {
+    background-color: rgba(45, 72, 53, 0.984);
+}
+
+.hidden {
+    display: none;
+}
+
+.titulo-antes-comentarios{
+    position: relative;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid rgb(133, 131, 131);
+}
+
+.comment-section{
+    margin-bottom: 2%;
+}
+
+.estrella-grande{
+    font-size: 1.5em;
+    gap: 0;
+}
