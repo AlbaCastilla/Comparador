@@ -58,6 +58,7 @@
 .footer .grupo1 .box3 .arriba .form-contenedor .input-box {
     margin-bottom: 20px;
     color: white;
+    border-radius: 50px;
     /*background-color: red; */
 }
 
@@ -151,6 +152,19 @@
     font-size: 15px;
 }
 
+.btn-inicioSesion{
+    margin-bottom: 20px;
+    color: white;
+    border-radius: 13px;
+    color:black;
+    padding: 3%;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding-left: 10%;
+    padding-right: 10%;
+    border: 1px solid white;
+}
 
 
 /*TAMAÑO MOVIL*/
