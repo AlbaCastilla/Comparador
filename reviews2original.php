@@ -68,7 +68,7 @@ $nombreUsuario = $_SESSION['nombre'];
                     $imagen_nombre = $_FILES['foto']['name'];
                     $imagen_tmp = $_FILES['foto']['tmp_name'];
                     $imagen_ruta = "imgsReviews/" . $imagen_nombre; // Asegúrate de que el directorio existe
-
+        
                     // Mueve la imagen a la carpeta deseada
                     if (!move_uploaded_file($imagen_tmp, $imagen_ruta)) {
                         echo "<div class='message'>Error al subir la imagen.</div>";
