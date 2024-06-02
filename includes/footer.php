@@ -25,14 +25,16 @@
                     <section class="form-main">
 
                         <div class="form-contenedor">
-                            <form method="post" action="login.php">
+                            <form method="post" action="comprobar_login.php">
                                 <div class="input-box">
                                     <button type="submit" class="btn">Ver Comentarios</button>
                                 </div>
-                                <div class="input-box">
-                                    <button type="submit" class="btn">Iniciar Sesión</button>
-                                </div>
                             </form>
+
+                                <div class="input-box">
+                                    <a href="login.php" ><button class="btn-inicioSesion" >Iniciar Sesión</button></a>
+                                </div>
+                        
                         </div>
 
                     </section>
