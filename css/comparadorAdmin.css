@@ -1,0 +1,585 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+.h1 {
+    text-align: center;
+}
+.h2 {
+    text-align: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    padding: 5%;
+    padding-top: 3%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/*AL IMG NO LE HE PUESTO PUNTO */
+.card img {
+    width: 100%;
+    height: 200px; /* Ajustar la altura de la imagen */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-content {
+    padding: 5%;
+}
+
+.card .h2 {
+    margin-top: 5%;
+}
+
+.card .p {
+    margin-bottom: 10px;
+}
+
+.card .button {
+    background-color: #395d44; /* Cambio de color de botón */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 3%;
+    margin-left: 30%;
+    margin-right: 30%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card .button:hover {
+    background-color: #27402e; /* Cambio de color de botón al pasar el ratón */
+}
+
+#modificarAccesorio {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index: 1000;
+}
+
+#modificarAccesorio .button {
+    background-color: #5B8869; /* Cambio de color de botón */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#modificarAccesorio .button:hover {
+    background-color: #27402e; /* Cambio de color de botón al pasar el ratón */
+}
+/* Estilos para el botón de comparar */
+#addAccesorio {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index: 1000;
+}
+
+#addAccesorio .button {
+    background-color: #5B8869; /* Cambio de color de botón */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#addAccesorio .button:hover {
+    background-color: #27402e; /* Cambio de color de botón al pasar el ratón */
+}
+
+
+/* Estilos para el botón de volver arriba */
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    left: 25px;
+    z-index: 1000;
+    display: none;
+}
+
+#top-button .button {
+    background-color: #5B8869; /* Cambio de color de botón */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#top-button .button:hover {
+    background-color: #27402e; /* Cambio de color de botón al pasar el ratón */
+}
+
+/* Estilos para la sección de comparación */
+.compare-container {
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: grid; /* Utilizar un grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+/*.compare-container .single-column {
+    grid-column: span 2; /* Ocupar las dos columnas 
+}*/
+
+.compare-container .h2 {
+    text-align: center;
+}
+
+.compare-card {
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+display: grid; /* Cambiar a grid layout */
+grid-template-rows: auto 1fr auto; /* Definir filas automáticas para el título, contenido y botón */
+align-items: center;
+text-align: left;
+margin-bottom: 15%;
+}
+
+.compare-card .h2 {
+margin-top: 0;
+text-align: left; /* Alinear texto a la izquierda */
+}
+
+.div-img-comparador {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+/*AL IMG NO LE HE PUESTO PUNTO */
+.div-img-comparador img {
+max-width: 100%;
+max-height: 200px;
+border-radius: 8px;
+margin-bottom: 10px;
+}
+
+.div-img-comparador .h2 {
+text-align: center;
+margin-top: 0;
+}
+
+.compare-card .p {
+margin-bottom: 10px;
+text-align: left; /* Alinear texto a la izquierda */
+}
+
+.compare-card .button {
+background-color: #395d44; /* Cambio de color de botón */
+color: white;
+border: none;
+border-radius: 4px;
+padding: 8px 16px;
+cursor: pointer;
+margin-top: 4%;
+transition: background-color 0.3s;
+justify-self: center; /* Centrar horizontalmente el botón */
+}
+
+.compare-card .button:hover {
+background-color: #27402e; /* Cambio de color de botón al pasar el ratón */
+}
+
+
+.selected {
+    border-color: blue; /* Cambia el color del borde a azul */
+}
+
+.estrella-container {
+    display: flex;
+    align-items: center;
+}
+
+.estrella-grande {
+    font-size: 2em;
+    gap: 0;
+}
+
+#parte-accesorios-perros{
+padding-top: 2%;
+}
+#parte-accesorios-gatos{
+padding-top: 2%;
+}
+#parte-accesorios-roedores{
+padding-top: 2%;
+}
+#parte-accesorios-aves{
+padding-top: 2%;
+}
+#parte-accesorios-peces{
+padding-top: 2%;
+}
+#parte-accesorios-reptiles{
+padding-top: 2%;
+}
+
+#botones-accesorios {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#botones-accesorios .a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #5B8869;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 5px;
+    transition: background-color 0.3s;
+}
+
+#botones-accesorios .a:hover {
+    background-color: #395d44;
+}
+
+.card.selected {
+border-color: #5B8869; /* Cambia el color del borde al seleccionar */
+border: 2px solid #5B8869;
+}
+
+.titulo-comparador {
+display: flex;
+justify-content: center;
+}
+
+.titulo-comparador .h2 {
+margin-top: 0; /* Añadir margen superior para separar del contenido */
+}
+.chart-container {
+width: 100%;
+text-align: center;
+}
+
+.canvas {
+max-width: 100%; /* Ajustar el tamaño máximo del canvas al ancho de su contenedor */
+height: auto; /* Permitir que la altura se ajuste automáticamente */
+margin: 10px auto; /* Centrar el canvas horizontalmente */
+}
+
+/*.card.no-urgente::before {
+content: '';
+position: absolute;
+top: 10px;
+right: 10px;
+width: 20px;
+height: 20px;
+background-color: green;
+border-radius: 4px;
+}*/
+
+/* Estilos para el contenedor del formulario */
+.formularioAccesorioModificar {
+max-width: 600px; /* Ajusta el ancho máximo del formulario */
+margin: 0 auto; /* Centra el formulario horizontalmente */
+padding: 20px;
+margin-top: 5%;
+margin-bottom: 10%;
+background-color: #f9f9f9;
+border-radius: 10px;
+padding: 5%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilos para las etiquetas */
+.formAccesorioModificar .label {
+font-weight: bold;
+margin-top: 20px;
+}
+
+/* Estilos para los inputs */
+.formAccesorioModificar .input {
+width: 100%;
+padding: 8px;
+margin: 5px 0;
+box-sizing: border-box; /* Asegura que el padding no afecte el ancho del input */
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+/* Estilos para el botón de enviar */
+.formAccesorioModificar .submit {
+background-color: #27402e;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.formAccesorioModificar .submit:hover {
+background-color: #27402e;
+}
+
+/* Estilos para el botón de cerrar */
+.formAccesorioModificar .button {
+background-color: #f44336;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.formAccesorioModificar .button:hover {
+background-color: #d32f2f;
+}
+
+
+#formularioAccesorio {
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
+margin-top: 5%;
+margin-bottom: 10%;
+background-color: #f9f9f9;
+border-radius: 10px;
+padding: 5%;
+border: 1px solid #ddd;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+display: flex;
+background-color: #fff;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+/* Estilos para las etiquetas del segundo formulario */
+#formularioAccesorio .label {
+font-weight: bold;
+margin-top: 20px;
+}
+
+/* Estilos para los inputs del segundo formulario */
+#formularioAccesorio .input {
+width: 100%;
+padding: 8px;
+margin: 5px 0;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+#formularioAccesorio .select {
+width: 100%;
+padding: 8px;
+margin: 5px 0;
+box-sizing: border-box;
+border: 1px solid #ccc;
+border-radius: 5px;
+margin-bottom: 20px;
+}
+
+/* Estilos para el botón de enviar del segundo formulario */
+#formularioAccesorio .submit {
+background-color: #27402e;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+#formularioAccesorio .submit:hover {
+background-color: #27402e;
+}
+
+/* Estilos para el botón de cerrar del segundo formulario */
+#formularioAccesorio .button {
+background-color: #f44336;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+.titulo-principal-comparador-admin{
+margin-top: 5%;
+margin-bottom: 2%;
+}
+.cards-peces{
+margin-bottom: 3%;
+}
+
+#formularioAccesorio .button:hover {
+background-color: #d32f2f;
+}
+
+#boton-eliminar-accesorio{
+position: relative;
+top: 10px;
+left: 0;
+border-radius: 50%;
+border: 1px solid black;
+width: 30px;
+height: 30px;
+background-color:hsla(0, 100%, 50%, 0.7);
+}
+#boton-eliminar-accesorio .i{
+width: auto;
+height: 100%;
+}
+
+#boton-eliminar-accesorio .button:hover {
+background-color: orange;
+}
+
+/* Media query para hacer el formulario responsive */
+@media screen and (max-width: 600px) {
+.formularioAccesorioModificar {
+width: 90%; /* Reducir el ancho del formulario en pantallas pequeñas */
+}
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+.compare-container {
+grid-template-columns: 1fr;
+}
+.compare-container .single-column {
+    grid-column: span 1; /* Ocupar las dos columnas */
+}
+.chart-container {
+width: 100%;
+text-align: center;
+}
+
+.canvas {
+width: 300px; /* Establecer un ancho fijo para el canvas en dispositivos de pantalla pequeña */
+height: auto; /* Permitir que la altura se ajuste automáticamente */
+margin: 10px auto; /* Centrar el canvas horizontalmente */
+}
+
+.compare-card {
+max-width: 300px; /* Establecer un ancho máximo */
+margin: 0 auto; /* Centrar en pantallas más pequeñas */
+}
+#botones-accesorios .a {
+padding: 8px 16px; /* Reducir el padding */
+margin: 5px 5px; /* Reducir el margen entre los botones */
+}
+#addAccesorio .button{
+    position: fixed;
+    bottom: 5%;
+    right: 25px;
+    border-radius: 50%; /* Hace que los bordes del botón sean redondos */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    z-index: 1000;
+}
+#top-button .button{
+    position: fixed;
+    bottom: 5%;
+    left: 25px;
+    border-radius: 50%; /* Hace que los bordes del botón sean redondos */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    z-index: 1000;
+}
+}
+
+@media screen and (max-width: 480px) {
+.compare-container {
+grid-template-rows: 1fr;
+}
+.compare-container .single-column {
+    grid-column: span 1; /* Ocupar las dos columnas */
+}
+.compare-card {
+padding: 10px; /* Reducir el relleno */
+}
+
+.compare-card .button {
+padding: 5px 10px; /* Reducir el relleno del botón */
+}
+#botones-accesorios .a {
+padding: 8px 16px; /* Reducir el padding */
+margin: 5px 5px; /* Reducir el margen entre los botones */
+}
+#addAccesorio .button{
+    position: fixed;
+    right: 25px;
+    border-radius: 50%; /* Hace que los bordes del botón sean redondos */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    z-index: 1000;
+}
+#top-button .button{
+    position: fixed;
+    bottom: 5%;
+    left: 25px;
+    border-radius: 50%; /* Hace que los bordes del botón sean redondos */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    z-index: 1000;
+}
+}
+
+.chart-container {
+    width: 100%;
+    text-align: center;
+}
+
+.canvas {
+    max-width: 400px;
+    margin: 10px auto;
+}
