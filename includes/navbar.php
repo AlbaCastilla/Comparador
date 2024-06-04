@@ -1,3 +1,8 @@
+<?php
+
+$correo = isset($_SESSION["correo"]) ? $_SESSION["correo"] : '';
+$accesoriosHref = (strpos($correo, '@refugioadmin.es') !== false) ? 'comparadorAdmin.php' : 'comparadorUsuario.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +25,7 @@
         <ul>
             <li><a class="encuentro" href="index.php">¿Quíenes Somos?</a></li>
             <li><a href="#">Animales</a></li>
-            <li><a href="#">Comparador</a></li>
+            <li><a href="<?php echo $accesoriosHref; ?>">Accesorios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="login.php">Cuenta</a></li>
         </ul>
