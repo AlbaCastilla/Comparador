@@ -20,7 +20,7 @@
         <ul>
             <li><a class="encuentro" href="index.php">¿Quíenes Somos?</a></li>
             <li><a href="#">Animales</a></li>
-            <li><a href="#">Comparador</a></li>
+            <li><a href="#">Accesorios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="login.php">Cuenta</a></li>
         </ul>
