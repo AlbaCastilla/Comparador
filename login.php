@@ -1,6 +1,8 @@
 <?php
-session_start(); // Start the session at the beginning
-
+// Start the session at the beginning
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 $error_message = ""; // Inicializar la variable de mensaje de error
 
 // Check if form was submitted
@@ -20,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Store the email in session
     $_SESSION['correo'] = $email;
+
 
     // Query to check if the email exists in the database
     $sql = "SELECT * FROM usuarios WHERE correo = '$email'";
@@ -53,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h2 class="h2">Inicio de Sesión</h2>
     <div class="form-group">
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label class="label">Correo electrónico: <input type="email" name="correo" class="input" placeholder="Introduce tu correo" required></label>
             <button type="submit" name="submit" class="button">Continuar</button>
         </form>

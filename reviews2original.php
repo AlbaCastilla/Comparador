@@ -1,6 +1,8 @@
 <?php
 // Inicia la sesión
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['nombre'])) {
     // Redirigir si el nombre no está definido en la sesión
