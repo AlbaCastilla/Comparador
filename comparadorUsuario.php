@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,6 +90,33 @@ function scrollFunction() {
     return stars;
 }
 
+function guardarComparacion(palabraImg1,palabraImg2) {
+    
+
+    const formData = new FormData();
+    formData.append('palabraImg1', palabraImg1);
+    formData.append('palabraImg2', palabraImg2);
+
+    fetch('guardar_comparaciones.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // La comparación se guardó correctamente
+            console.log(response);
+            console.log('Comparación guardada exitosamente');
+        } else {
+            // Hubo un error al guardar la comparación
+            console.error('Error al guardar la comparación');
+        }
+    })
+    .catch(error => {
+        console.error('Error de red:', error);
+    });
+}
+
+
     async function compareCards() {
         if (selectedCards.length !== 2) {
             alert('Selecciona exactamente dos tarjetas para comparar');
@@ -137,6 +169,9 @@ function scrollFunction() {
             <canvas id="reviewsChart" class="canvas"></canvas>
         </div>
     </div>
+    <button id="btnParaGuardarComparacionEnTabla" class="button" onclick="guardarComparacion('${details2.palabraImg}','${details1.palabraImg}')" type="button">Guardar Comparación</button>
+
+    
 `;
 
 
