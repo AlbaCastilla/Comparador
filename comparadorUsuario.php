@@ -15,10 +15,31 @@ window.addEventListener('resize', function() {
    window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+    const compareButton = document.getElementById('compare-button');
+    const topButton = document.getElementById('top-button');
+    const topButtonBtn = document.getElementById('top-button-btn');
+    const footer = document.getElementById('footer');
+    
+    // Mostrar/ocultar el botón de "Volver Arriba"
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("top-button").style.display = "block";
+        topButton.style.display = "block";
     } else {
-        document.getElementById("top-button").style.display = "none";
+        topButton.style.display = "none";
+    }
+
+    // Obtener la posición del pie de página
+    const footerRect = footer.getBoundingClientRect();
+    const footerVisible = footerRect.top < window.innerHeight && footerRect.bottom >= 0;
+
+    // Mostrar/ocultar el botón de "Comparar" y cambiar el color del botón de "Volver Arriba"
+    if (footerVisible) {
+        compareButton.style.display = "none";
+        topButtonBtn.style.backgroundColor = "white";
+        topButtonBtn.style.color = "black";
+    } else {
+        compareButton.style.display = "block";
+        topButtonBtn.style.backgroundColor = "#5B8869"; 
+        topButtonBtn.style.color = "white";
     }
 }
 
@@ -387,11 +408,13 @@ if ($resultPeces->num_rows > 0) {
 
 
     <div id="top-button" class="top-button div">
-    <button onclick="scrollToTop()" class="button">Volver Arriba</button>
+    <button onclick="scrollToTop()" id="top-button-btn" class="button ">Volver Arriba</button>
 </div>
+<div id="footer">
 <?php
     include "includes/footer.php";
 ?>
+</div>
 </body>
 </html>
 

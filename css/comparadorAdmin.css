@@ -484,6 +484,9 @@ height: 100%;
 #boton-eliminar-accesorio .button:hover {
 background-color: orange;
 }
+.a{
+    text-decoration: none;
+}
 
 /* Media query para hacer el formulario responsive */
 @media screen and (max-width: 600px) {
