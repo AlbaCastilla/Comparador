@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Error en la consulta SQL o no se encontró el usuario
             echo "Error al obtener el nombre de usuario: " . $conex->error;
         }*/
+        $_SESSION['loggedin'] = true;
         header("Location: index.php");
     } else {
         // La contraseña es incorrecta
