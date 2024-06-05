@@ -8,15 +8,51 @@
     <script src="https://kit.fontawesome.com/07ca607712.js" crossorigin="anonymous"></script>
     <script>
 
-   window.onscroll = function() {scrollFunction()};
-
+window.onscroll = scrollFunction;
 function scrollFunction() {
+    const topButton = document.getElementById('top-button');
+    const topButtonBtn = document.getElementById('top-button-btn');
+    const footer = document.getElementById('footer');
+    const modifAccesorioButtonBtn = document.getElementById('modificar-accesorio-btn');
+    const addAccesorioButtonBtn = document.getElementById('add-accesorio-btn');
+    
+    // Mostrar/ocultar el botón de "Volver Arriba"
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("top-button").style.display = "block";
+        topButton.style.display = "block";
     } else {
-        document.getElementById("top-button").style.display = "none";
+        topButton.style.display = "none";
+    }
+
+    // Obtener la posición del pie de página
+    const footerRect = footer.getBoundingClientRect();
+    const footerVisible = footerRect.top < window.innerHeight && footerRect.bottom >= 0;
+
+    if (footerVisible) {
+        if (modifAccesorioButtonBtn && addAccesorioButtonBtn) {
+            modifAccesorioButtonBtn.style.display = "none";
+            addAccesorioButtonBtn.style.display = "none";
+        }
+        topButtonBtn.style.backgroundColor = "white";
+        topButtonBtn.style.color = "black";
+    } else {
+        if (modifAccesorioButtonBtn && addAccesorioButtonBtn) {
+            modifAccesorioButtonBtn.style.display = "block";
+            addAccesorioButtonBtn.style.display = "block";
+        }
+        topButtonBtn.style.backgroundColor = "#5B8869"; 
+        topButtonBtn.style.color = "white";
+    }
+
+    // Asegurarse de que la decoración del texto se mantiene sin subrayado
+    topButtonBtn.style.textDecoration = "none";
+    if (modifAccesorioButtonBtn) {
+        modifAccesorioButtonBtn.style.textDecoration = "none";
+    }
+    if (addAccesorioButtonBtn) {
+        addAccesorioButtonBtn.style.textDecoration = "none";
     }
 }
+
 
 
     function addAccessorioAnimal() {
@@ -314,14 +350,17 @@ if ($resultPeces->num_rows > 0) {
     
     </div>
 
-    <div id="addAccesorio" class="addAccesorio div"><a href="#formularioAccesorio">
-    <button class="button" onclick="addAccessorioAnimal()">Añadir accesorio nuevo</button></a>
-    </div>
+    <div id="addAccesorio" class="addAccesorio div">
+    <a class="a" href="#formularioAccesorio">
+        <button class="button" id="add-accesorio-btn" onclick="addAccessorioAnimal()">Añadir accesorio nuevo</button>
+    </a>
+</div>
 
-    <div class="div" id="modificarAccesorio" style="display:none;"><a class="a" href="#formularioAccesorioModificar">
-    <button class="button">Modificar accesorio</button>
-    <!--<button onclick="modifyAccessorio()">Modificar accesorio</button>-->
-    </a></div>
+<div class="div" id="modificarAccesorio" style="display:none;">
+    <a class="a" href="#formularioAccesorioModificar">
+        <button class="button" id="modificar-accesorio-btn">Modificar accesorio</button>
+    </a>
+</div>
 
 <div id="formularioAccesorio" style="display:none;" class="div">
     <form id="formAccesorio" action="add_accesorio.php" method="post" enctype="multipart/form-data" class="form">
@@ -420,11 +459,13 @@ if ($resultPeces->num_rows > 0) {
 
     
     <div id="top-button" class="top-button div">
-    <button class="button"onclick="scrollToTop()">Volver Arriba</button>
+    <button class="button" id="top-button-btn" onclick="scrollToTop()">Volver Arriba</button>
 </div>
+<div id="footer">
 <?php
     include "includes/footer.php";
 ?>
+</div>
 </body>
 </html>
 
