@@ -3,7 +3,7 @@
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 .tituloFiltros {
@@ -12,6 +12,8 @@
     text-align: center;
     line-height: .8;
     font-size: 30px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* SELECTS */
@@ -210,4 +212,8 @@
 
 #btnCerrarEmergente:hover {
     color: #333;
+}
+
+.footer{
+    margin-top: 5%;
 }
