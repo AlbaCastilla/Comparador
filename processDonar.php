@@ -12,7 +12,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 // Verificar la existencia de palabraImgDonar en la sesión
 if (!isset($_SESSION["palabraImgDonar"])) {
-    echo "Error: No se encontró palabraImgDonar en la sesión.";
+    $_SESSION['donation_message'] = "Error: No se encontró palabraImgDonar en la sesión.";
+    header("Location: donar.php");
     exit;
 }
 
@@ -33,7 +34,7 @@ if ($conn->connect_error) {
 // Obtener datos del formulario y de la sesión
 $palabraImg = $_SESSION["palabraImgDonar"];
 $name = $_SESSION['nombre'];
-$email = $_SESSION['email'];
+$email = $_SESSION['correo'];
 $cardName = $_POST['cardName'];
 $cardNumber = $_POST['cardNumber'];
 $expDate = $_POST['expDate'];
@@ -44,7 +45,8 @@ $lastFourDigits = substr($cardNumber, -4);
 
 // Verificar que los últimos 4 dígitos consistan solo en números
 if (!preg_match('/^\d{4}$/', $lastFourDigits)) {
-    echo "Error: Número de tarjeta inválido.";
+    $_SESSION['donation_message'] = "Error: Número de tarjeta inválido.";
+    header("Location: donar.php");
     exit;
 }
 
@@ -57,11 +59,16 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param('sssssss', $name, $email, $cardName, $lastFourDigits, $expDate, $orderNumber, $palabraImg);
 
 if ($stmt->execute()) {
-    echo "Donación completada con éxito. Número de pedido: " . htmlspecialchars($orderNumber);
+    // Guardar el número de pedido en la sesión
+    $_SESSION['order_number'] = $orderNumber;
+    $_SESSION['donation_message'] = "Donación completada con éxito. Muchísimas gracias :)";
 } else {
-    echo "Hubo un error al procesar tu donación. Por favor, intenta nuevamente.";
+    $_SESSION['donation_message'] = "Hubo un error al procesar tu donación. Por favor, intenta nuevamente.";
 }
 
 $stmt->close();
 $conn->close();
+
+header("Location: donar.php");
+exit;
 ?>
