@@ -5,6 +5,9 @@
     <script class="script" src="js/emergenteAnimales.js"></script>
     <link class="link" rel="stylesheet" href="css/animalesFiltros.css">
 </head>
+<?php
+        include "includes/navbar.php";
+    ?>
 <body class="body">
 
 <div class="tituloFiltros div">
@@ -245,6 +248,10 @@
         </div>
     </div>
 </div>
-
+<div class="footer div">
+<?php
+        include "includes/footer.php";
+    ?>
+    </div>
 </body>
 </html>
