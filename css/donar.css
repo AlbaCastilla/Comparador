@@ -1,7 +1,10 @@
-*{
+/* Restablecer margen y padding */
+* {
     margin: 0;
     padding: 0;
 }
+
+/* Estilo de body */
 .body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -10,8 +13,10 @@
     align-items: center;
     flex-direction: column;
     margin: 0;
+    min-height: 100vh; /* Para centrar verticalmente */
 }
 
+/* Contenedor principal */
 .container {
     background: white;
     padding: 20px;
@@ -19,29 +24,47 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 5% 0;
 }
 
+/* Estilo del título */
 .h2 {
     margin-bottom: 20px;
     color: #333;
 }
 
+/* Etiquetas del formulario */
 .label {
     display: block;
     margin-bottom: 5px;
     color: #333;
 }
 
+/* Campos de entrada del formulario */
 .input {
-    width: 90%; /* Se ha reducido el ancho */
+    width: 100%; /* Ancho completo para coherencia */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no cause problemas de ancho */
 }
 
+/* Estilos para los placeholders */
+::placeholder {
+    color: gray;
+    opacity: 1; /* Asegura que el placeholder sea visible */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #999;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #999;
+}
+
+/* Estilo del botón */
 .button {
     width: 100%;
     padding: 10px;
@@ -56,7 +79,80 @@
     background-color: #218838;
 }
 
+/* Estilo para mensajes de error */
 .error {
     color: red;
     margin-bottom: 10px;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegura que el modal esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de cierre */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para detalles */
+.donation-details .p {
+    margin: 10px 0;
+}
+.respuesta-donacion {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #888;
+    padding: 3%;
+    z-index: 9999; /* Asegura que esté encima de todo */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.donation-message {
+    margin-bottom: 5%;
+}
+.hidden {
+    display: none;
+}
+.donation-message.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
 }
