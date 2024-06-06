@@ -72,13 +72,13 @@ function scrollFunction() {
     });
 }
 
-function donateCard(card, palabraImg){
+/*function donateCard(card, palabraImg){
     event.stopPropagation();
     console.log("PalabraImg seleccionada para donar:", palabraImg); // Agregar esta línea para verificar palabraImg
     if(palabraImg!=undefined){
     //eliminateCardConnect(palabraImg);}
     donateCardConnect(palabraImg);
-}
+}}*/
 
 function eliminateCard(card, palabraImg){
     event.stopPropagation();
@@ -100,10 +100,10 @@ function toggleSelectCard(card, palabraImg) {
     
 }
 
-async function donateCardConnect(palabraImg){
+/*async function donateCardConnect(palabraImg){
     console.log("llega a la funcion de consulta", palabraImg);
   const response2 = await fetch(`processDonar.php?palabraImg=${palabraImg}`);
-}
+}*/
 
 async function eliminateCardConnect(palabraImg){
     //console.log("llega a la funcion de consulta", $palabraImg);

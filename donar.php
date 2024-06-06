@@ -10,18 +10,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
+// Verificar la existencia de palabraImgDonar en la sesión
+if (!isset($_SESSION["palabraImgDonar"])) {
+    echo "Error: No se encontró palabraImgDonar en la sesión.";
+    exit;
+}
+
 // Obtener datos de usuario de la sesión
 $email = $_SESSION['email'];
 $name = $_SESSION['nombre'];
 
-// Verificar el estado de la donación
+/*// Verificar el estado de la donación
 $donationStatus = isset($_SESSION['donation_status']) ? $_SESSION['donation_status'] : '';
 $orderNumber = isset($_SESSION['order_number']) ? $_SESSION['order_number'] : '';
+*/
 
-// Limpiar estado de la donación
-unset($_SESSION['donation_status']);
-unset($_SESSION['order_number']);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,21 +36,10 @@ unset($_SESSION['order_number']);
     <title>Página de Donar</title>
     <link rel="stylesheet" href="css/donar.css">
 </head>
-<?php
-    include "includes/navbar.php";
-?>
 <body class="body">
+    <?php include "includes/navbar.php"; ?>
     <div class="container div">
-        <h2 class="heading h2">Formulario de Compra</h2>
-        <?php if ($donationStatus === 'success'): ?>
-            <div class="confirmation-message">
-                Donación completada con éxito. Número de pedido: <?php echo htmlspecialchars($orderNumber); ?>
-            </div>
-        <?php elseif ($donationStatus === 'error'): ?>
-            <div class="error-message">
-                Hubo un error al procesar tu donación. Por favor, intenta nuevamente.
-            </div>
-        <?php endif; ?>
+        <h2 class="h2">Formulario de Compra</h2>
         <form id="paymentForm" class="form" action="processDonar.php" method="POST">
             <label for="cardName" class="label">Nombre en la Tarjeta</label>
             <input type="text" id="cardName" class="input" name="cardName" required>
@@ -60,9 +55,9 @@ unset($_SESSION['order_number']);
 
             <button type="submit" class="button">Comprar</button>
         </form>
+        
     </div>
+    <?php include "includes/footer.php"; ?>
 </body>
-<?php
-    include "includes/footer.php";
-?>
+
 </html>

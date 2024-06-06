@@ -10,6 +10,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
+// Verificar la existencia de palabraImgDonar en la sesión
+if (!isset($_SESSION["palabraImgDonar"])) {
+    echo "Error: No se encontró palabraImgDonar en la sesión.";
+    exit;
+}
+
 // Datos de conexión a la base de datos
 $servername = "localhost";
 $username = "root";
@@ -25,7 +31,7 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario y de la sesión
-$palabraImg = $_GET['palabraImg'];
+$palabraImg = $_SESSION["palabraImgDonar"];
 $name = $_SESSION['nombre'];
 $email = $_SESSION['email'];
 $cardName = $_POST['cardName'];
@@ -38,26 +44,24 @@ $lastFourDigits = substr($cardNumber, -4);
 
 // Verificar que los últimos 4 dígitos consistan solo en números
 if (!preg_match('/^\d{4}$/', $lastFourDigits)) {
-    // Si no son solo números, puedes manejar el error aquí
-    $_SESSION['donation_status'] = "error";
-    header("location: donar.php");
-    exit; // Terminar el script o manejar el error de otra manera
+    echo "Error: Número de tarjeta inválido.";
+    exit;
 }
 
 // Generar número de pedido único
 $orderNumber = uniqid('ORDER_');
 
 // Insertar datos en la base de datos
-$sql = "INSERT INTO donaciones (nombre, email, cardName, lastFourDigits, expDate, orderNumber) VALUES ('$name', '$email', '$cardName', '$lastFourDigits', '$expDate', '$orderNumber')";
+$sql = "INSERT INTO donaciones (nombre, email, cardName, lastFourDigits, expDate, orderNumber, palabraImgDonar) VALUES (?, ?, ?, ?, ?, ?, ?)";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('sssssss', $name, $email, $cardName, $lastFourDigits, $expDate, $orderNumber, $palabraImg);
 
-if ($conn->query($sql) === TRUE) {
-    $_SESSION['donation_status'] = "success";
-    $_SESSION['order_number'] = $orderNumber;
+if ($stmt->execute()) {
+    echo "Donación completada con éxito. Número de pedido: " . htmlspecialchars($orderNumber);
 } else {
-    $_SESSION['donation_status'] = "error";
+    echo "Hubo un error al procesar tu donación. Por favor, intenta nuevamente.";
 }
 
+$stmt->close();
 $conn->close();
-header("location: donar.php");
-exit;
 ?>
