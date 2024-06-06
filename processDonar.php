@@ -25,6 +25,7 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario y de la sesión
+$palabraImg = $_GET['palabraImg'];
 $name = $_SESSION['nombre'];
 $email = $_SESSION['email'];
 $cardName = $_POST['cardName'];
