@@ -1,0 +1,127 @@
+/* Estilos generales para el cuerpo */
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh; /* Para centrar verticalmente */
+}
+
+/* Estilos para el contenedor de información del usuario */
+.user-info {
+   margin-top: 5%;
+   margin-bottom: 5%;
+    text-align: center;
+    
+}
+
+/* Estilos para el ícono del usuario */
+.fa-user {
+    font-size: 50px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los párrafos de información del usuario */
+.user-info .p {
+    color: #333;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Estilos para el formulario y el botón de cierre de sesión */
+.user-info .form {
+    margin-top: 20px;
+}
+
+.user-info .button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.user-info .button:hover {
+    background-color: #218838;
+}
+.recibos-caja {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Organizar en columna */
+    width: 90%; /* Ajustar al 90% del ancho de la página */
+    align-items: stretch; /* Estirar elementos en dirección horizontal */
+    margin: auto; /* Centrar horizontalmente */
+}
+
+.recibo {
+   
+    border-bottom: 1px solid gray;
+    padding: 10px; /* Añadir espacio interior */
+    position: relative; /* Posición relativa para fecha y hora */
+}
+
+.fecha {
+    position: absolute; /* Posición absoluta para fecha */
+    top: 0; /* Arriba */
+    right: 0; /* Derecha */
+}
+
+.hora {
+    position: absolute; /* Posición absoluta para hora */
+    bottom: 0; /* Abajo */
+    right: 0; /* Derecha */
+}
+.info {
+    display: flex; /* Mostrar los elementos en línea */
+}
+
+.info .p {
+    margin: 0; /* Espacio entre cada campo */
+}
+.datos-tarjeta-caja {
+    display: flex;
+    justify-content: space-between; /* Distribuir uniformemente los elementos */
+    width: 60%; /* Ocupar todo el ancho del contenedor padre */
+}
+.p{
+    padding-bottom: 8px;
+}
+.h3{
+    margin-bottom: 3%;
+}
+.ver-mas-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 10px auto; /* Ajusta el espacio entre la flecha y los recibos y centra horizontalmente */
+    font-size: 30px; /* Tamaño de la flecha */
+    display: block; /* Hacer que el botón sea un bloque para centrarlo */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+.ver-mas-button:hover {
+    transform: translateY(5px); /* Desplazar ligeramente hacia abajo al pasar el cursor */
+}
+.recibos-adicionales {
+    display: none; /* Los recibos adicionales estarán ocultos por defecto */
+}
+
+.visible {
+    display: block; /* Mostrar los recibos adicionales cuando la clase 'visible' está presente */
+}
+.comparacion {
+    display: flex; /* Para que las columnas estén en línea */
+    align-items: center; /* Para alinear verticalmente */
+}
+
+.card1palabraImg, .card2palabraImg, .vs {
+    margin-right: 10px; /* Espacio entre las columnas */
+    margin-left: 10px;
+}
