@@ -16,6 +16,17 @@
     margin-bottom: 5%;
 }
 
+/*para la imagen de fondo para el titulo*/
+.tituloFiltros .h2 {
+    font-size: 58px;
+    font-weight: 900;
+    background: url('imgsAnimales/Marmol_verde.jpg') no-repeat;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 /* SELECTS */
 
     /* SELECTS */
@@ -26,6 +37,7 @@
         justify-content: center;
         margin-bottom: 20px;
         margin-left: -10%;
+        align-items: center;
     }
 
 .contenedorSelect .label {
