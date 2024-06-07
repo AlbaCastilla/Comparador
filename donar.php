@@ -126,5 +126,15 @@ function ocultarMensaje() {
         </script>
     <?php include "includes/footer.php"; ?>
 </body>
+<!--<div class="chart-container">
+        <div class="chart1-container">
+            <h3 class="h3">Media de evaluación integral de los productos</h3>
+            <canvas id="durabilityChart" class="canvas"></canvas>
+        </div>
+        <div>
+            <h3 class="h3">Porcentaje de comparación entre productos, evaluación general</h3>
+            <canvas id="reviewsChart" class="canvas"></canvas>
+        </div>
+    </div>-->
 </html>
 
