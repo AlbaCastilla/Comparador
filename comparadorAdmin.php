@@ -1,3 +1,9 @@
+
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +14,51 @@
     <script src="https://kit.fontawesome.com/07ca607712.js" crossorigin="anonymous"></script>
     <script>
 
-   window.onscroll = function() {scrollFunction()};
-
+window.onscroll = scrollFunction;
 function scrollFunction() {
+    const topButton = document.getElementById('top-button');
+    const topButtonBtn = document.getElementById('top-button-btn');
+    const footer = document.getElementById('footer');
+    const modifAccesorioButtonBtn = document.getElementById('modificar-accesorio-btn');
+    const addAccesorioButtonBtn = document.getElementById('add-accesorio-btn');
+    
+    // Mostrar/ocultar el botón de "Volver Arriba"
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("top-button").style.display = "block";
+        topButton.style.display = "block";
     } else {
-        document.getElementById("top-button").style.display = "none";
+        topButton.style.display = "none";
+    }
+
+    // Obtener la posición del pie de página
+    const footerRect = footer.getBoundingClientRect();
+    const footerVisible = footerRect.top < window.innerHeight && footerRect.bottom >= 0;
+
+    if (footerVisible) {
+        if (modifAccesorioButtonBtn && addAccesorioButtonBtn) {
+            modifAccesorioButtonBtn.style.display = "none";
+            addAccesorioButtonBtn.style.display = "none";
+        }
+        topButtonBtn.style.backgroundColor = "white";
+        topButtonBtn.style.color = "black";
+    } else {
+        if (modifAccesorioButtonBtn && addAccesorioButtonBtn) {
+            modifAccesorioButtonBtn.style.display = "block";
+            addAccesorioButtonBtn.style.display = "block";
+        }
+        topButtonBtn.style.backgroundColor = "#5B8869"; 
+        topButtonBtn.style.color = "white";
+    }
+
+    // Asegurarse de que la decoración del texto se mantiene sin subrayado
+    topButtonBtn.style.textDecoration = "none";
+    if (modifAccesorioButtonBtn) {
+        modifAccesorioButtonBtn.style.textDecoration = "none";
+    }
+    if (addAccesorioButtonBtn) {
+        addAccesorioButtonBtn.style.textDecoration = "none";
     }
 }
+
 
 
     function addAccessorioAnimal() {
@@ -29,6 +71,14 @@ function scrollFunction() {
         behavior: 'smooth'
     });
 }
+
+/*function donateCard(card, palabraImg){
+    event.stopPropagation();
+    console.log("PalabraImg seleccionada para donar:", palabraImg); // Agregar esta línea para verificar palabraImg
+    if(palabraImg!=undefined){
+    //eliminateCardConnect(palabraImg);}
+    donateCardConnect(palabraImg);
+}}*/
 
 function eliminateCard(card, palabraImg){
     event.stopPropagation();
@@ -45,10 +95,15 @@ function toggleSelectCard(card, palabraImg) {
     fetchCardDetails(palabraImg);
     document.getElementById('addAccesorio').style.display = 'none';
     document.getElementById('formularioAccesorio').style.display = 'none';
-        document.getElementById('modificarAccesorio').style.display = 'block';
-        document.getElementById('formularioAccesorioModificar').style.display = 'block';
+    document.getElementById('modificarAccesorio').style.display = 'block';
+    document.getElementById('formularioAccesorioModificar').style.display = 'block';
     
 }
+
+/*async function donateCardConnect(palabraImg){
+    console.log("llega a la funcion de consulta", palabraImg);
+  const response2 = await fetch(`processDonar.php?palabraImg=${palabraImg}`);
+}*/
 
 async function eliminateCardConnect(palabraImg){
     //console.log("llega a la funcion de consulta", $palabraImg);
@@ -176,7 +231,8 @@ if ($resultPerros->num_rows > 0) {
         echo '<div class="caja-imagenes-comparador div"><img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';
         echo '<p class="p">' . $row["descripcion"] . '</p>';
         echo '<p class="p">Precio: ' . $row["precio"] . ' €</p>';
-        echo '<a href="comparador.php" class="a"><button class="button">Donar</button></a>';
+        echo '<a href="donar.php" class="a"><button class="button" onclick="donateCard(this, \'' . $row["palabraImg"] . '\')">';
+        echo 'Donar</button></a>';
         echo '</div>';
     }
 } else {
@@ -314,14 +370,17 @@ if ($resultPeces->num_rows > 0) {
     
     </div>
 
-    <div id="addAccesorio" class="addAccesorio div"><a href="#formularioAccesorio">
-    <button class="button" onclick="addAccessorioAnimal()">Añadir accesorio nuevo</button></a>
-    </div>
+    <div id="addAccesorio" class="addAccesorio div">
+    <a class="a" href="#formularioAccesorio">
+        <button class="button" id="add-accesorio-btn" onclick="addAccessorioAnimal()">Añadir accesorio nuevo</button>
+    </a>
+</div>
 
-    <div class="div" id="modificarAccesorio" style="display:none;"><a class="a" href="#formularioAccesorioModificar">
-    <button class="button">Modificar accesorio</button>
-    <!--<button onclick="modifyAccessorio()">Modificar accesorio</button>-->
-    </a></div>
+<div class="div" id="modificarAccesorio" style="display:none;">
+    <a class="a" href="#formularioAccesorioModificar">
+        <button class="button" id="modificar-accesorio-btn">Modificar accesorio</button>
+    </a>
+</div>
 
 <div id="formularioAccesorio" style="display:none;" class="div">
     <form id="formAccesorio" action="add_accesorio.php" method="post" enctype="multipart/form-data" class="form">
@@ -420,11 +479,13 @@ if ($resultPeces->num_rows > 0) {
 
     
     <div id="top-button" class="top-button div">
-    <button class="button"onclick="scrollToTop()">Volver Arriba</button>
+    <button class="button" id="top-button-btn" onclick="scrollToTop()">Volver Arriba</button>
 </div>
+<div id="footer">
 <?php
     include "includes/footer.php";
 ?>
+</div>
 </body>
 </html>
 

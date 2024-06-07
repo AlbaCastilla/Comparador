@@ -43,7 +43,9 @@ $conn->close();
 
 
 
-
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Datos de conexión a la base de datos
 $servername = "localhost";

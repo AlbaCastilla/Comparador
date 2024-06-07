@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['correo'])) {
     // Redirigir si el correo no está definido en la sesión
@@ -64,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Error en la consulta SQL o no se encontró el usuario
             echo "Error al obtener el nombre de usuario: " . $conex->error;
         }*/
+        $_SESSION['loggedin'] = true;
         header("Location: index.php");
     } else {
         // La contraseña es incorrecta
@@ -87,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <h2 class="titulo">Inicio de Sesión</h2>
     <div class="form-group">
-        <form method="POST" action="">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label class="label">Contraseña: <input type="password" name="contrasena" class="input" placeholder="Introduce tu contraseña" required></label>
             <button type="submit" name="submit" class="button">Continuar</button>
         </form>

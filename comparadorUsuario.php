@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +20,31 @@ window.addEventListener('resize', function() {
    window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+    const compareButton = document.getElementById('compare-button');
+    const topButton = document.getElementById('top-button');
+    const topButtonBtn = document.getElementById('top-button-btn');
+    const footer = document.getElementById('footer');
+    
+    // Mostrar/ocultar el botón de "Volver Arriba"
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("top-button").style.display = "block";
+        topButton.style.display = "block";
     } else {
-        document.getElementById("top-button").style.display = "none";
+        topButton.style.display = "none";
+    }
+
+    // Obtener la posición del pie de página
+    const footerRect = footer.getBoundingClientRect();
+    const footerVisible = footerRect.top < window.innerHeight && footerRect.bottom >= 0;
+
+    // Mostrar/ocultar el botón de "Comparar" y cambiar el color del botón de "Volver Arriba"
+    if (footerVisible) {
+        compareButton.style.display = "none";
+        topButtonBtn.style.backgroundColor = "white";
+        topButtonBtn.style.color = "black";
+    } else {
+        compareButton.style.display = "block";
+        topButtonBtn.style.backgroundColor = "#5B8869"; 
+        topButtonBtn.style.color = "white";
     }
 }
 
@@ -63,6 +89,57 @@ function scrollFunction() {
     }
     return stars;
 }
+
+function donateCard(event, palabraImg) {
+    event.stopPropagation(); // Detener la propagación del evento para que no active el contenedor padre
+    console.log("PalabraImg seleccionada para donar:", palabraImg);
+    if (palabraImg != undefined) {
+        donateCardConnect(palabraImg);
+    }
+}
+
+async function donateCardConnect(palabraImg) {
+    console.log("Enviando petición con palabraImg:", palabraImg);
+    try {
+        const response = await fetch(`cogerpalabraImgDonar.php?palabraImg=${palabraImg}`);
+        if (response.ok) {
+            console.log("Donación completada con éxito");
+            window.location.href = "donar.php"; // Redirigir a donar.php
+        } else {
+            console.error("Error en la donación");
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error);
+    }
+}
+
+
+function guardarComparacion(palabraImg1,palabraImg2) {
+    
+
+    const formData = new FormData();
+    formData.append('palabraImg1', palabraImg1);
+    formData.append('palabraImg2', palabraImg2);
+
+    fetch('guardar_comparaciones.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // La comparación se guardó correctamente
+            console.log(response);
+            console.log('Comparación guardada exitosamente');
+        } else {
+            // Hubo un error al guardar la comparación
+            console.error('Error al guardar la comparación');
+        }
+    })
+    .catch(error => {
+        console.error('Error de red:', error);
+    });
+}
+
 
     async function compareCards() {
         if (selectedCards.length !== 2) {
@@ -116,6 +193,9 @@ function scrollFunction() {
             <canvas id="reviewsChart" class="canvas"></canvas>
         </div>
     </div>
+    <button id="btnParaGuardarComparacionEnTabla" class="button" onclick="guardarComparacion('${details2.palabraImg}','${details1.palabraImg}')" type="button">Guardar Comparación</button>
+
+    
 `;
 
 
@@ -267,7 +347,9 @@ function scrollFunction() {
     $resultPeces = $conn->query($sqlPeces);
     ?>
 
-<div class="titulo-comparador div"><h2 id="parte-accesorios-perros h2">Accesorios para Perros</h2></div>
+<div class="titulo-comparador div">
+    <h2 id="parte-accesorios-perros h2">Accesorios para Perros</h2>
+</div>
 <div class="cards-container div">
 <?php
 if ($resultPerros->num_rows > 0) {
@@ -277,7 +359,7 @@ if ($resultPerros->num_rows > 0) {
         echo '<div class="caja-imagenes-comparador div"> <img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';
         echo '<p class="p">' . $row["descripcion"] . '</p>';
         echo '<p class="p">Precio: ' . $row["precio"] . ' €</p>';
-        echo '<a href="comparador.php" class="a"><button class="button">Donar</button></a>';
+        echo '<button class="button" onclick="donateCard(event, \'' . $row["palabraImg"] . '\')">Donar</button>';
         echo '</div>';
     }
 } else {
@@ -387,11 +469,13 @@ if ($resultPeces->num_rows > 0) {
 
 
     <div id="top-button" class="top-button div">
-    <button onclick="scrollToTop()" class="button">Volver Arriba</button>
+    <button onclick="scrollToTop()" id="top-button-btn" class="button ">Volver Arriba</button>
 </div>
+<div id="footer">
 <?php
     include "includes/footer.php";
 ?>
+</div>
 </body>
 </html>
 
