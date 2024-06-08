@@ -6,6 +6,8 @@ if (session_status() === PHP_SESSION_NONE) {
 $correo = isset($_SESSION["correo"]) ? $_SESSION["correo"] : '';
 // Si no hay sesión iniciada o no hay correo en la sesión, establece la ruta a comparadorUsuario.php
 $accesoriosHref = empty($correo) ? 'comparadorUsuario.php' : (strpos($correo, '@refugioadmin.es') !== false ? 'comparadorAdmin.php' : 'comparadorUsuario.php');
+// Verifica si el usuario está registrado
+$cuentaHref = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? 'cuenta.php' : 'login.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +33,7 @@ $accesoriosHref = empty($correo) ? 'comparadorUsuario.php' : (strpos($correo, '@
             <li><a href="animalesFiltros.php">Animales</a></li>
             <li><a href="<?php echo $accesoriosHref; ?>">Accesorios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="login.php">Cuenta</a></li>
+            <li><a href="<?php echo $cuentaHref; ?>">Cuenta</a></li>
         </ul>
     </nav>
 </body>
