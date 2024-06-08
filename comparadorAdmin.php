@@ -72,6 +72,14 @@ function scrollFunction() {
     });
 }
 
+/*function donateCard(card, palabraImg){
+    event.stopPropagation();
+    console.log("PalabraImg seleccionada para donar:", palabraImg); // Agregar esta línea para verificar palabraImg
+    if(palabraImg!=undefined){
+    //eliminateCardConnect(palabraImg);}
+    donateCardConnect(palabraImg);
+}}*/
+
 function eliminateCard(card, palabraImg){
     event.stopPropagation();
     console.log("PalabraImg seleccionada para eliminar:", palabraImg); // Agregar esta línea para verificar palabraImg
@@ -87,10 +95,15 @@ function toggleSelectCard(card, palabraImg) {
     fetchCardDetails(palabraImg);
     document.getElementById('addAccesorio').style.display = 'none';
     document.getElementById('formularioAccesorio').style.display = 'none';
-        document.getElementById('modificarAccesorio').style.display = 'block';
-        document.getElementById('formularioAccesorioModificar').style.display = 'block';
+    document.getElementById('modificarAccesorio').style.display = 'block';
+    document.getElementById('formularioAccesorioModificar').style.display = 'block';
     
 }
+
+/*async function donateCardConnect(palabraImg){
+    console.log("llega a la funcion de consulta", palabraImg);
+  const response2 = await fetch(`processDonar.php?palabraImg=${palabraImg}`);
+}*/
 
 async function eliminateCardConnect(palabraImg){
     //console.log("llega a la funcion de consulta", $palabraImg);
@@ -218,7 +231,8 @@ if ($resultPerros->num_rows > 0) {
         echo '<div class="caja-imagenes-comparador div"><img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';
         echo '<p class="p">' . $row["descripcion"] . '</p>';
         echo '<p class="p">Precio: ' . $row["precio"] . ' €</p>';
-        echo '<a href="comparador.php" class="a"><button class="button">Donar</button></a>';
+        echo '<a href="donar.php" class="a"><button class="button" onclick="donateCard(this, \'' . $row["palabraImg"] . '\')">';
+        echo 'Donar</button></a>';
         echo '</div>';
     }
 } else {

@@ -90,6 +90,30 @@ function scrollFunction() {
     return stars;
 }
 
+function donateCard(event, palabraImg) {
+    event.stopPropagation(); // Detener la propagación del evento para que no active el contenedor padre
+    console.log("PalabraImg seleccionada para donar:", palabraImg);
+    if (palabraImg != undefined) {
+        donateCardConnect(palabraImg);
+    }
+}
+
+async function donateCardConnect(palabraImg) {
+    console.log("Enviando petición con palabraImg:", palabraImg);
+    try {
+        const response = await fetch(`cogerpalabraImgDonar.php?palabraImg=${palabraImg}`);
+        if (response.ok) {
+            console.log("Donación completada con éxito");
+            window.location.href = "donar.php"; // Redirigir a donar.php
+        } else {
+            console.error("Error en la donación");
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error);
+    }
+}
+
+
 function guardarComparacion(palabraImg1,palabraImg2) {
     
 
@@ -323,7 +347,9 @@ function guardarComparacion(palabraImg1,palabraImg2) {
     $resultPeces = $conn->query($sqlPeces);
     ?>
 
-<div class="titulo-comparador div"><h2 id="parte-accesorios-perros h2">Accesorios para Perros</h2></div>
+<div class="titulo-comparador div">
+    <h2 id="parte-accesorios-perros h2">Accesorios para Perros</h2>
+</div>
 <div class="cards-container div">
 <?php
 if ($resultPerros->num_rows > 0) {
@@ -333,7 +359,7 @@ if ($resultPerros->num_rows > 0) {
         echo '<div class="caja-imagenes-comparador div"> <img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';
         echo '<p class="p">' . $row["descripcion"] . '</p>';
         echo '<p class="p">Precio: ' . $row["precio"] . ' €</p>';
-        echo '<a href="comparador.php" class="a"><button class="button">Donar</button></a>';
+        echo '<button class="button" onclick="donateCard(event, \'' . $row["palabraImg"] . '\')">Donar</button>';
         echo '</div>';
     }
 } else {
