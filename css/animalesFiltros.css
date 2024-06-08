@@ -20,7 +20,7 @@
 .tituloFiltros .h2 {
     font-size: 58px;
     font-weight: 900;
-    background: url('imgsAnimales/Marmol_verde.jpg') no-repeat;
+    background: url('../imgsAnimales/Marmol_verde.jpg');
     background-size: cover;
     -webkit-background-clip: text;
     background-clip: text;
