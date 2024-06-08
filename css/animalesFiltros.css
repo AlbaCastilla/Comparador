@@ -229,3 +229,20 @@
 .footer{
     margin-top: 5%;
 }
+
+.button-izquierdo-inferior {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ajusta este valor si necesitas que el botón esté sobre otros elementos */
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-izquierdo-inferior:hover {
+    background-color: #0056b3; /* Cambia el color de fondo cuando se pasa el ratón sobre el botón */
+}

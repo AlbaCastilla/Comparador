@@ -11,7 +11,7 @@ if (!isset($_SESSION['correo'])) {
 
 $correo = $_SESSION['correo'];
 $error_message = ""; // Inicializar la variable de mensaje de error
-
+echo "<script>var isLoggedIn = true;</script>";
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST['contrasena'];
@@ -66,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Error en la consulta SQL o no se encontró el usuario
             echo "Error al obtener el nombre de usuario: " . $conex->error;
         }*/
+        echo "<script>var isLoggedIn = true;</script>";
         $_SESSION['loggedin'] = true;
         header("Location: index.php");
     } else {
