@@ -1,0 +1,72 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.caja-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.compare-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.titulo {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 15px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+}
+
+.img-contenedor {
+    text-align: center;
+    padding: 15px;
+}
+
+.img {
+    width: 150px; /* Ancho fijo para todas las imágenes */
+    height: 150px; /* Alto fijo para todas las imágenes */
+    object-fit: cover; /* Recortar la imagen para ajustarse al contenedor */
+}
+
+.texto {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.parrafo {
+    margin: 10px 0;
+}
+
+.boton {
+    display: block;
+    width: calc(100% - 30px);
+    margin: 15px auto;
+    padding: 10px 0;
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton:hover {
+    background-color: #218838;
+}
