@@ -34,22 +34,6 @@
             });
         });
 
-        // Agregar evento de clic al botón "Seleccionar Tarjeta"
-        document.getElementById('seleccionarTarjeta').addEventListener('click', function() {
-            // Obtener el nombre del animal seleccionado del campo oculto
-            let nombreAnimalSeleccionado = document.getElementById('nombreAnimalSeleccionado').value;
-
-            if (nombreAnimalSeleccionado) {
-                // Llenar el formulario con el nombre del animal seleccionado
-                document.getElementById('nombreAnimal').value = nombreAnimalSeleccionado;
-
-                // Mostrar el formulario de modificación
-                mostrarFormulario();
-            } else {
-                alert('Por favor, selecciona una tarjeta antes de continuar.');
-            }
-        });
-    });
 </script>
 
 <?php
@@ -264,11 +248,6 @@ include "includes/navbar.php";
     //cerramos la conexion con la base de datos en mysql
     $conexion -> close();
     ?>
-</div>
-
-<!-- Botón estático en la esquina inferior izquierda -->
-<div class="boton-fijo">
-    <button id="seleccionarTarjeta">Seleccionar Tarjeta</button>
 </div>
 
 <!--VENTANA EMERGENTE-->
