@@ -4,6 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 $correo = isset($_SESSION["correo"]) ? $_SESSION["correo"] : '';
+
+$animalesHref = empty($correo) ? 'animalesFiltros.php' : (strpos($correo, '@refugioadmin.es') !== false ? 'animalesFiltrosAdmin.php' : 'animalesFiltros.php');
 // Si no hay sesión iniciada o no hay correo en la sesión, establece la ruta a comparadorUsuario.php
 $accesoriosHref = empty($correo) ? 'comparadorUsuario.php' : (strpos($correo, '@refugioadmin.es') !== false ? 'comparadorAdmin.php' : 'comparadorUsuario.php');
 // Verifica si el usuario está registrado
@@ -29,8 +31,8 @@ $cuentaHref = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '
             <img src="imgs/pixelcut-export_3.png" alt="">
         </div>
         <ul>
-            <li><a class="encuentro" href="index.php">¿Quíenes Somos?</a></li>
-            <li><a href="prueba.php">Animales</a></li>
+            <li><a class="encuentro" href="index.php">¿Quiénes Somos?</a></li>
+            <li><a href="<?php echo $animalesHref; ?>">Animales</a></li>
             <li><a href="<?php echo $accesoriosHref; ?>">Accesorios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="<?php echo $cuentaHref; ?>">Cuenta</a></li>
