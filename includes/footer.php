@@ -25,11 +25,9 @@
                     <section class="form-main">
 
                         <div class="form-contenedor">
-                            <form method="post" action="comprobar_login.php">
-                                <div class="input-box">
-                                    <button type="submit" class="btn">Ver Comentarios</button>
+                        <div class="input-box btn-comentarios">
+                                    <a href="reviews2original.php" ><button class="btn-inicioSesion" >Comentarios</button></a>
                                 </div>
-                            </form>
 
                                 <div class="input-box">
                                     <a href="login.php" ><button class="btn-inicioSesion" >Iniciar Sesión</button></a>
