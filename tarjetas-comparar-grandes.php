@@ -44,7 +44,7 @@
             session_start();
         }
 
-        $servername = "localhost:3366";
+        $servername = "localhost:3306";
         $username = "root";
         $password = "";
         $dbname = "comparadorbd";

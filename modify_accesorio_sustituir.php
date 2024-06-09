@@ -1,6 +1,6 @@
 <?php
 // Establecer conexión a la base de datos (sustituye los valores con tus credenciales)
-$servername = "localhost:3366";
+$servername = "localhost:3306";
 $username = "root";
 $password = "";
 $dbname = "comparadorbd";
