@@ -264,7 +264,7 @@
     grid-column: 1 / -1;
     justify-content: center;
     border: 1px solid #ddd;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     border-radius: 8px;
     padding: 20px;
     background-color: #fff;
@@ -272,9 +272,19 @@
     float: left;
     text-align: center;
 }
+#btnParaGuardarComparacionEnTabla{
+    grid-column: 1 / -1;
+    justify-content: center;
+    padding: 20px;
+    background-color: #27402e;
+    color: white;
+    margin-bottom: 5%;
+}
 .chart1-container{
     position: relative;
     float: left;
+    padding: 20px;
+    background-color: #fff;
 }
 
 .titulo-principal-comparador{
