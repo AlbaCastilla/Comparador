@@ -122,7 +122,7 @@ async function fetchCardDetails(palabraImg) {
 
     const response = await fetch(`modify_accesorio.php?palabraImg=${palabraImg}`);
         const data = await response.json();
-
+        
         modifyAccessorio(data);
     }
 
@@ -225,7 +225,7 @@ if ($resultPerros->num_rows > 0) {
         // Imprimir el div de la tarjeta con la clase correspondiente
         echo '<div class="div ' . $cardClass . '" onclick="toggleSelectCard(this, \'' . $row["palabraImg"] . '\')">';
         echo '<button id="boton-eliminar-accesorio"  onclick="eliminateCard(this, \'' . $row["palabraImg"] . '\')"';
-        echo '<i class="fa-solid fa-trash"></i>';
+        echo '<i class="fa-solid fa-trash i"></i>';
         echo '</button>';
         echo '<h2 class="h2">' . $row["tipoJuguete"] . '</h2>';
         echo '<div class="caja-imagenes-comparador div"><img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';

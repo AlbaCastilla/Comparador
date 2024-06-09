@@ -1,0 +1,448 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    /*padding: 20px;*/
+}
+
+.tituloFiltros {
+    font-family: 'Anton', sans-serif;
+    width: 100%;
+    text-align: center;
+    line-height: .8;
+    font-size: 30px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/*para la imagen de fondo para el titulo*/
+.tituloFiltros .h2 {
+    font-size: 58px;
+    font-weight: 900;
+    background: url('../imgsAnimales/Marmol_verde.jpg');
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* SELECTS */
+
+    /* SELECTS */
+    .contenedorSelect {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-left: -10%;
+        align-items: center;
+    }
+
+.contenedorSelect .label {
+    flex-basis: 100%;
+    text-align: right;
+    margin-right: 3%;
+}
+
+
+.contenedorSelect .select,
+.contenedorSelect .input[type="submit"] {
+    width: 100%;
+    max-width: 250px;
+    cursor: pointer;
+    padding: 7px 10px;
+    height: 42px;
+    outline: 0;
+    border: 0;
+    border-radius: 12px;
+    background: #f0f0f0;
+    color: #7b7b7b;
+    font-size: 1em;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease;
+}
+.input#btnconsultar {
+    margin-left: 90%;
+    margin-top: 5%;
+}
+
+.contenedorSelect .select:hover,
+.contenedorSelect .input[type="submit"]:hover {
+    background: #B1E8CD;
+}
+
+/* TARJETAS */
+.contenedorTarjetasAnimales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.tituloTipoAnimal {
+    grid-column: 1 / -1;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card .h4 {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 20px;
+}
+
+.card .p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.masInfo {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 16px;
+    border: none;
+    background-color: #73A783;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.masInfo:hover {
+    background-color: #558f63;
+}
+
+
+
+
+
+
+/*VENTANA EMERGENTE*/
+#fondoEnsombrecido {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#ventanaEmergente {
+    display: none;
+    position: fixed;
+    width: 80%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+#ventanaEmergente .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+#ventanaEmergente .h2 {
+    background-color: #73A783;
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 25%;
+    color: #314437;
+    text-align: center;
+}
+
+#ventanaEmergente .contenedor .columna1-info {
+    grid-column: 1;
+    text-align: left;
+}
+
+#ventanaEmergente .contenedor .columna2-foto {
+    grid-column: 2;
+    text-align: center;
+}
+
+#imgAnimalEmergente {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.peso {
+    display: none;
+}
+
+
+/* BOTÓN DE CERRAR */
+#btnCerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#btnCerrarEmergente {
+    cursor: pointer;
+    font-size: 28px;
+    color: #aaa;
+}
+
+#btnCerrarEmergente:hover {
+    color: #333;
+}
+
+.footer{
+    margin-top: 5%;
+}
+
+.button-izquierdo-inferior {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000; /* Ajusta este valor si necesitas que el botón esté sobre otros elementos */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5B8869; /* Cambio de color de botón */
+color: white;
+border: none;
+border-radius: 4px;
+padding: 20px;
+cursor: pointer;
+margin-top: 4%;
+transition: background-color 0.3s;
+border: 1px solid white;
+justify-self: center;
+border-radius: 50%;
+}
+
+.button-izquierdo-inferior:hover {
+    background-color: #27402e; /* Cambia el color de fondo cuando se pasa el ratón sobre el botón */
+}
+
+.button-derecho-inferior {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ajusta este valor si necesitas que el botón esté sobre otros elementos */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5B8869; /* Cambio de color de botón */
+color: white;
+border: none;
+border-radius: 4px;
+padding: 20px;
+cursor: pointer;
+margin-top: 4%;
+border:1px solid white;
+transition: background-color 0.3s;
+justify-self: center;
+border-radius: 50%;
+}
+
+.button-derecho-inferior:hover {
+    background-color:#27402e; /* Cambia el color de fondo cuando se pasa el ratón sobre el botón */
+}
+
+.form-container {
+    display: none;
+    margin-top: 20px;
+}
+.form-container2{
+    display: none;
+    margin-top: 20px;
+}
+.selected {
+    border: 2px solid green; /* Borde verde */
+    box-shadow: 0 0 5px green; /* Sombra verde */
+}
+.deleteButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color:hsla(0, 100%, 50%, 0.7); /* Cambiamos el color de fondo del botón a rojo */
+    border: none;
+    cursor: pointer;
+    z-index: 1; /* Asegura que el botón esté por encima del contenido de la tarjeta */
+    padding: 5px; /* Ajustamos el relleno para que el botón sea más grande */
+    border-radius: 50%; /* Hacemos que el botón tenga forma circular */
+}
+
+.deleteButton i {
+    color: white; /* Cambiamos el color del icono a blanco */
+    font-size: 12px;
+    padding: 5px;
+}
+
+.card {
+    position: relative;
+}
+
+/* Estilos para el contenedor del formulario */
+#form-container2 {
+    display: none; /* Ocultar el formulario por defecto */
+    background-color: #f9f9f9; /* Color de fondo del formulario */
+    border: 1px solid #ddd; /* Borde del formulario */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 20px; /* Espaciado interno */
+    width: 50%; /* Ancho del formulario reducido */
+    margin: 20px auto; /* Centramos el formulario */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+    margin-top: 5%;
+}
+
+/* Estilos para los elementos del formulario */
+#animal-form2 {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column; /* Alinear los elementos del formulario en columna */
+    align-items: center; /* Centrar los elementos del formulario */
+}
+
+
+
+/* Estilos para las etiquetas */
+#animal-form2 label {
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 3px; /* Espacio inferior reducido */
+    width: 100%; /* Hacer que las etiquetas ocupen todo el ancho del formulario */
+}
+
+/* Estilos para los campos de entrada de texto */
+#animal-form2 input[type="text"],
+#animal-form2 textarea {
+    font-size: 14px; /* Tamaño de fuente */
+    padding: 8px; /* Espaciado interno reducido */
+    /* Espacio inferior reducido */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    width: 100%; /* Ancho del campo */
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+}
+
+/* Estilos específicos para el campo de área de texto */
+#animal-form2 textarea {
+    height: 80px; /* Altura del área de texto */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+/* Estilos para el botón de submit */
+#animal-form2 button[type="submit"] {
+    background-color:  #27402e; /* Color de fondo */
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    align-self: center; /* Centrar el botón */
+}
+
+/* Cambiar el color del botón al pasar el ratón por encima */
+#animal-form2 button[type="submit"]:hover {
+    background-color: #27402e; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilos para el contenedor del formulario */
+#form-container {
+    display: none; /* Ocultar el formulario por defecto */
+    background-color: #f9f9f9; /* Color de fondo del formulario */
+    border: 1px solid #ddd; /* Borde del formulario */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 20px; /* Espaciado interno */
+    width: 50%; /* Ancho del formulario reducido */
+    margin: 20px auto; /* Centramos el formulario */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+    margin-top: 5%;
+}
+
+/* Estilos para los elementos del formulario */
+#animal-form {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column; /* Alinear los elementos del formulario en columna */
+    align-items: center; /* Centrar los elementos del formulario */
+}
+
+/* Estilos para las etiquetas */
+#animal-form label {
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 3px; /* Espacio inferior reducido */
+    width: 100%; /* Hacer que las etiquetas ocupen todo el ancho del formulario */
+}
+
+/* Estilos para los campos de entrada de texto */
+#animal-form input[type="text"],
+#animal-form input[type="number"],
+#animal-form input[type="file"],
+#animal-form select,
+#animal-form textarea {
+    font-size: 14px; /* Tamaño de fuente */
+    padding: 8px; /* Espaciado interno reducido */
+    margin-bottom: 10px; /* Espacio inferior reducido */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    width: 100%; /* Ancho del campo */
+    box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+}
+
+/* Estilos específicos para el campo de área de texto */
+#animal-form textarea {
+    height: 80px; /* Altura del área de texto */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+/* Estilos para el botón de submit */
+#animal-form button[type="submit"] {
+    background-color: #27402e; /* Color de fondo */
+    color: white; /* Color de texto */
+    font-size: 16px; /* Tamaño de fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    align-self: center; /* Centrar el botón */
+}
+
+/* Cambiar el color del botón al pasar el ratón por encima */
+#animal-form button[type="submit"]:hover {
+    background-color: #27402e; /* Color de fondo al pasar el ratón */
+}
+
+

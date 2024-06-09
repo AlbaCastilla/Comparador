@@ -121,36 +121,35 @@
     </div>
 
     <script>
-    // Verifica si las filas existen antes de usar sus datos
     <?php if ($row1 && $row2): ?>
-    const details1 = {
-        reviews: <?php echo $row1['reviews']; ?>,
-        tipoJuguete: '<?php echo $row1['tipoJuguete']; ?>',
-        durabilidadGrafico: <?php echo $row1['durabilidadGrafico']; ?>,
-        facilidadLimpiezaGrafico: <?php echo $row1['facilidadLimpiezaGrafico']; ?>,
-        impactoAmbientalGrafico: <?php echo $row1['impactoAmbientalGrafico']; ?>,
-        estiloGrafico: <?php echo $row1['estiloGrafico']; ?>
-    };
+        const details1 = {
+            reviews: <?php echo $row1['reviews']; ?>,
+            tipoJuguete: '<?php echo $row1['tipoJuguete']; ?>',
+            durabilidadGrafico: <?php echo $row1['durabilidadGrafico']; ?>,
+            facilidadLimpiezaGrafico: <?php echo $row1['facilidadLimpiezaGrafico']; ?>,
+            impactoAmbientalGrafico: <?php echo $row1['impactoAmbientalGrafico']; ?>,
+            estiloGrafico: <?php echo $row1['estiloGrafico']; ?>
+        };
 
-    const details2 = {
-        reviews: <?php echo $row2['reviews']; ?>,
-        tipoJuguete: '<?php echo $row2['tipoJuguete']; ?>',
-        durabilidadGrafico: <?php echo $row2['durabilidadGrafico']; ?>,
-        facilidadLimpiezaGrafico: <?php echo $row2['facilidadLimpiezaGrafico']; ?>,
-        impactoAmbientalGrafico: <?php echo $row2['impactoAmbientalGrafico']; ?>,
-        estiloGrafico: <?php echo $row2['estiloGrafico']; ?>
-    };
+        const details2 = {
+            reviews: <?php echo $row2['reviews']; ?>,
+            tipoJuguete: '<?php echo $row2['tipoJuguete']; ?>',
+            durabilidadGrafico: <?php echo $row2['durabilidadGrafico']; ?>,
+            facilidadLimpiezaGrafico: <?php echo $row2['facilidadLimpiezaGrafico']; ?>,
+            impactoAmbientalGrafico: <?php echo $row2['impactoAmbientalGrafico']; ?>,
+            estiloGrafico: <?php echo $row2['estiloGrafico']; ?>
+        };
 
-    const dataDurability = {
+        const dataDurability = {
             labels: ['Durabilidad', 'Facilidad de limpieza', 'Impacto ambiental', 'Estilo'],
             datasets: [{
-                label: '<?php echo $details1["tipoJuguete"]; ?>',
+                label: details1.tipoJuguete,
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 1,
                 data: [details1.durabilidadGrafico, details1.facilidadLimpiezaGrafico, details1.impactoAmbientalGrafico, details1.estiloGrafico]
             }, {
-                label: '<?php echo $details2["tipoJuguete"]; ?>',
+                label: details2.tipoJuguete,
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgb(54, 162, 235)',
                 borderWidth: 1,
@@ -161,13 +160,13 @@
         const dataReviews = {
             labels: ['Reseñas'],
             datasets: [{
-                label: '<?php echo $details1["tipoJuguete"]; ?>',
+                label: details1.tipoJuguete,
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 1,
                 data: [details1.reviews]
             }, {
-                label: '<?php echo $details2["tipoJuguete"]; ?>',
+                label: details2.tipoJuguete,
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgb(54, 162, 235)',
                 borderWidth: 1,
