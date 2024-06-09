@@ -471,19 +471,18 @@ position: relative;
 top: 10px;
 left: 0;
 border-radius: 50%;
-border: 1px solid black;
+border: 1px solid white;
 width: 30px;
 height: 30px;
 background-color:hsla(0, 100%, 50%, 0.7);
 }
 #boton-eliminar-accesorio .i{
+    color: white!important;
 width: auto;
 height: 100%;
 }
 
-#boton-eliminar-accesorio .button:hover {
-background-color: orange;
-}
+
 .a{
     text-decoration: none;
 }
