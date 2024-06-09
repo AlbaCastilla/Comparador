@@ -228,48 +228,46 @@ function guardarComparacion(palabraImg1,palabraImg2) {
 `;
 
 
-        const data = {
-                labels: ['Durabilidad', 'Facilidad de limpieza', 'Impacto ambiental', 'Estilo'],
-                datasets: [{
-                    label: details1.tipoJuguete,
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    borderWidth: 1,
-                    data: [details1.durabilidadGrafico, details1.facilidadLimpiezaGrafico, details1.impactoAmbientalGrafico, details1.estiloGrafico]
-                }, {
-                    label: details2.tipoJuguete,
-                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                    borderColor: 'rgb(54, 162, 235)',
-                    borderWidth: 1,
-                    data: [details2.durabilidadGrafico, details2.facilidadLimpiezaGrafico, details2.impactoAmbientalGrafico, details2.estiloGrafico]
-                }]
-            };
+const data = {
+    labels: ['Durabilidad', 'Facilidad de limpieza', 'Impacto ambiental', 'Estilo'],
+    datasets: [{
+        label: details1.tipoJuguete,
+        backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)'],
+        borderColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)', 'rgb(75, 192, 192)'],
+        borderWidth: 1,
+        data: [details1.durabilidadGrafico, details1.facilidadLimpiezaGrafico, details1.impactoAmbientalGrafico, details1.estiloGrafico]
+    }, {
+        label: details2.tipoJuguete,
+        backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)'],
+        borderColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 206, 86)', 'rgb(75, 192, 192)'],
+        borderWidth: 1,
+        data: [details2.durabilidadGrafico, details2.facilidadLimpiezaGrafico, details2.impactoAmbientalGrafico, details2.estiloGrafico]
+    }]
+};
 
-            // Configurar opciones para los gráficos
-            const options = {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 10, // Valor máximo del eje y
-                        ticks: {
-                            stepSize: 5, // Mostrar todos los números
-                            callback: function(value) {
-                                return value; // Mostrar todos los números del 0 al 10
-                            }
-                        }
-                    }
+// Configurar opciones para los gráficos
+const options = {
+    scales: {
+        y: {
+            beginAtZero: true,
+            max: 10,
+            ticks: {
+                stepSize: 5,
+                callback: function(value) {
+                    return value;
                 }
-            };
+            }
+        }
+    }
+};
 
-
-            // Crear y mostrar los gráficos
-            const ctx = document.getElementById('durabilityChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: options
-            });
-
+// Crear y mostrar los gráficos
+const ctx = document.getElementById('durabilityChart').getContext('2d');
+new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: options
+});
             const reviewsData = {
             labels: [details1.tipoJuguete, details2.tipoJuguete],
             datasets: [{
