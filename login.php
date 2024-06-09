@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['correo'];
 
     // Connect to the database
-    $conex = new mysqli('localhost', 'root', '', 'comparadorbd');
+    $conex = new mysqli('localhost:3366', 'root', '', 'comparadorbd');
 
     // Check for connection errors
     if ($conex->connect_error) {

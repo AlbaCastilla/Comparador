@@ -98,7 +98,7 @@ $nombreUsuario = $_SESSION['nombre'];
     <!-- Aquí se mostrarán los comentarios -->
     <div class="comment-section">
         <?php
-        $conex = mysqli_connect("localhost", "root", "", "comparadorbd");
+        $conex = mysqli_connect("localhost:3366", "root", "", "comparadorbd");
 
         if ($conex) {
             // Modifica la consulta SQL para ordenar los comentarios por fecha en orden descendente

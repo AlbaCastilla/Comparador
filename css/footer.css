@@ -168,6 +168,10 @@
     padding-bottom: 0;
 }
 
+li{
+    color: white;
+}
+
 /*TAMAÑO MOVIL*/
 @media only screen and (max-width: 766px) {
     
