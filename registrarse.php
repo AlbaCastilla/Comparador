@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
     // Conectar a la base de datos (modifica los parámetros según tu configuración)
-    $conex = new mysqli('localhost:3366', 'root', '', 'comparadorbd');
+    $conex = new mysqli('localhost:3306', 'root', '', 'comparadorbd');
 
     // Verificar si hay errores de conexión
     if ($conex->connect_error) {
