@@ -74,7 +74,7 @@ nav .menu-btn .emoticono-barra {
 /* TAMAÑO TABLET */
 @media only screen and (min-width: 767px) and (max-width: 1090px) {
     .logo {
-        display: none; /* Ocultar el texto del logo */
+        margin-left: 30%;
     }
 
     .imagen-logo {
@@ -101,7 +101,7 @@ nav .menu-btn .emoticono-barra {
     }
 
     nav ul li a {
-        padding: 8px 12px; /* Ajustar el relleno */
+        padding: 8px 10px; /* Ajustar el relleno */
     }
 }
 
