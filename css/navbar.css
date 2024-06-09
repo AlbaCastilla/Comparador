@@ -61,38 +61,50 @@ nav .menu-btn .emoticono-barra {
 .imagen-logo {
     display: none;
 }
+.icon-blanco {
+    color: white;
+    font-size: 1.5em;
+}
+.imglogo img{
+    display: none;
+}
 
-
-
+/*TAMAÑO TABLET*/
+/* TAMAÑO TABLET */
+/* TAMAÑO TABLET */
 @media only screen and (min-width: 767px) and (max-width: 1090px) {
-
-    nav {
-        padding: 0 20px 0 50px;
-    }
-
-    nav .logo {
-        color: white;
-        font-size: 35px;
-        font-weight: 300;
-        margin-left: 27%;
-    }
-
-    nav ul li a {
-        color: #f2f2f2;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 500;
-        padding: 5px 15px;
-        border-radius: 5px;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
+    .logo {
+        display: none; /* Ocultar el texto del logo */
     }
 
     .imagen-logo {
-        display: none;
+        display: block; /* Mostrar la imagen del logo */
+        position: absolute; /* Posicionar absolutamente */
+        left: 20px; /* Ajustar la posición a la izquierda */
+         /* Centrar verticalmente */
+        transform: translateY(-50%);
     }
-    
+
+    .imagen-logo img {
+        width: 80px; /* Ajustar el ancho de la imagen */
+        height: auto; /* Mantener la proporción */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente los elementos del ul */
+        width: 100%; /* Ajustar el ancho para ocupar toda la pantalla */
+    }
+
+    nav ul li {
+        margin: 0 10px; /* Ajustar el margen */
+    }
+
+    nav ul li a {
+        padding: 8px 12px; /* Ajustar el relleno */
+    }
 }
+
 
 @media (max-width: 766px) {
 
