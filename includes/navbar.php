@@ -23,19 +23,23 @@ $cuentaHref = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '
 <body>
     <nav>
         <div class="logo">Refugio de Animales</div>
+        
         <input type="checkbox" id="click" class="aceptar">
         <label for="click" class="menu-btn">
             <div class="emoticono-barra fas fa-bars"></div>
         </label>
-        <div class="imagen-logo">
-            <img src="imgs/pixelcut-export_3.png" alt="">
-        </div>
+        
         <ul>
-            <li><a class="encuentro" href="index.php">¿Quiénes Somos?</a></li>
+        <!--<li>
+            <div class="imagen-logo">
+                <img src="imgs/pixelcut-export_3.png" alt="">
+            </div>
+        </li>-->
+            <li><a  href="index.php">¿Quiénes Somos?</a></li>
             <li><a href="<?php echo $animalesHref; ?>">Animales</a></li>
             <li><a href="<?php echo $accesoriosHref; ?>">Accesorios</a></li>
             <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="<?php echo $cuentaHref; ?>">Cuenta</a></li>
+            <li><a href="<?php echo $cuentaHref; ?>"> <i class="i fa-solid fa-user icon-blanco"></i></a></li>
         </ul>
     </nav>
 </body>
