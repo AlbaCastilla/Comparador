@@ -160,12 +160,49 @@ if ($result->num_rows > 0) {
     
 </div>
 </div>
-
+</div>
+<div class="footer">
 <?php
 include "includes/footer.php";
 ?>
+</div>
 </body>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Selecciona el botón "Ver más"
+    var verMasButton = document.getElementById('verMasDonaciones');
+    // Selecciona el icono dentro del botón
+    var iconoFlecha = verMasButton.querySelector('i');
+    
+    // Escucha el evento de clic en el botón "Ver más"
+    verMasButton.addEventListener('click', function() {
+        // Selecciona todos los elementos con la clase "recibos-adicionales"
+        var hiddenDonaciones = document.querySelectorAll('.recibos-adicionales');
+        // Itera sobre los elementos ocultos y muestra solo los primeros tres
+        var contador = 0;
+        hiddenDonaciones.forEach(function(donacion) {
+            if (contador < 3) {
+                donacion.classList.remove('recibos-adicionales');
+                contador++;
+            } else {
+                donacion.classList.add('recibos-adicionales');
+            }
+        });
+        
+        // Si ya no quedan elementos ocultos para mostrar
+        if (document.querySelectorAll('.recibos-adicionales').length === 0) {
+            // Cambia la clase del icono de la flecha hacia arriba
+            iconoFlecha.classList.remove('fa-angle-down');
+            iconoFlecha.classList.add('fa-angle-up');
+            
+            // Escucha el evento de clic en el botón "Ver más" para recargar la página
+            verMasButton.addEventListener('click', function() {
+                location.reload();
+            });
+        }
+    });
+});
+
     document.getElementById('verMasDonaciones').addEventListener('click', function() {
         console.log("hello")
     showMoreDonaciones();
@@ -182,4 +219,5 @@ include "includes/footer.php";
 }
     
     </script>
+    
 </html>
