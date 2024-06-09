@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <?php
 // Datos de conexión a la base de datos
-$servername = "localhost";
+$servername = "localhost:3366";
 $username = "root";
 $password = "";
 $dbname = "comparadorbd";

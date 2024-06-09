@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$servername = "localhost";
+$servername = "localhost:3366";
 $username = "root";
 $password = "";
 $dbname = "comparadorbd";

@@ -66,7 +66,7 @@ include "includes/navbar.php";
 <div class="recibos-caja div">
 <?php
 // Conexión a la base de datos
-$servername = "localhost";
+$servername = "localhost:3366";
 $username = "root";
 $password = "";
 $dbname = "comparadorbd";
@@ -123,7 +123,7 @@ if ($result->num_rows > 0) {
 <div class="comparaciones-container">
     <?php
     // Conexión a la base de datos
-    $servername = "localhost";
+    $servername = "localhost:3366";
     $username = "root";
     $password = "";
     $dbname = "comparadorbd";
