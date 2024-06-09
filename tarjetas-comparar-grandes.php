@@ -6,35 +6,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/tarjetas_comparar_grande.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", function() {
-    // Selecciona el elemento body
-    var body = document.querySelector("body");
-
-    // Oculta el cursor predeterminado
-    body.style.cursor = "none";
-
-    // Crea un nuevo elemento de imagen para el cursor
-    var customCursor = new Image();
-    customCursor.src = "cursor.png";
-    customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
-    customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
-    customCursor.style.zIndex = "9999"; 
-    // Establece el tamaño del cursor personalizado
-    var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
-    customCursor.width = tamañoCursor;
-    customCursor.height = tamañoCursor;
-
-    // Escucha eventos de movimiento del ratón
-    body.addEventListener("mousemove", function(event) {
-        // Actualiza la posición del cursor personalizado
-        customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
-        customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
-    });
-
-    // Agrega el cursor personalizado al cuerpo del documento
-    body.appendChild(customCursor);
-
-});</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var body = document.querySelector("body");
+            body.style.cursor = "none";
+            var customCursor = new Image();
+            customCursor.src = "cursor.png";
+            customCursor.style.position = "fixed";
+            customCursor.style.pointerEvents = "none";
+            customCursor.style.zIndex = "9999";
+            var tamañoCursor = 20;
+            customCursor.width = tamañoCursor;
+            customCursor.height = tamañoCursor;
+            body.addEventListener("mousemove", function(event) {
+                customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
+                customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+            });
+            body.appendChild(customCursor);
+        });
+    </script>
 </head>
 <body class="body">
     <?php include "includes/navbar.php"; ?>
@@ -173,16 +163,46 @@
             labels: ['Durabilidad', 'Facilidad de limpieza', 'Impacto ambiental', 'Estilo'],
             datasets: [{
                 label: details1.tipoJuguete,
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 206, 86)',
+                    'rgb(75, 192, 192)'
+                ],
                 borderWidth: 1,
-                data: [details1.durabilidadGrafico, details1.facilidadLimpiezaGrafico, details1.impactoAmbientalGrafico, details1.estiloGrafico]
+                data: [
+                    details1.durabilidadGrafico, 
+                    details1.facilidadLimpiezaGrafico, 
+                    details1.impactoAmbientalGrafico, 
+                    details1.estiloGrafico
+                ]
             }, {
                 label: details2.tipoJuguete,
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: [
+                    'rgba(153,  102, 255, 153, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(75, 0, 192, 0.5)',
+                    'rgba(0, 255, 255, 0.5)'
+                ],
+                borderColor: [
+                    'rgb(153, 102, 255)',
+                    'rgb(255, 159, 64)',
+                    'rgb(75, 0, 192)',
+                    'rgb(0, 255, 255)'
+                ],
                 borderWidth: 1,
-                data: [details2.durabilidadGrafico, details2.facilidadLimpiezaGrafico, details2.impactoAmbientalGrafico, details2.estiloGrafico]
+                data: [
+                    details2.durabilidadGrafico, 
+                    details2.facilidadLimpiezaGrafico, 
+                    details2.impactoAmbientalGrafico, 
+                    details2.estiloGrafico
+                ]
             }]
         };
 
@@ -190,14 +210,26 @@
             labels: ['Reseñas'],
             datasets: [{
                 label: details1.tipoJuguete,
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)'
+                ],
                 borderWidth: 1,
                 data: [details1.reviews]
             }, {
                 label: details2.tipoJuguete,
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)'
+                ],
                 borderWidth: 1,
                 data: [details2.reviews]
             }]
@@ -220,7 +252,7 @@
 
         const ctxDurability = document.getElementById('durabilityChart').getContext('2d');
         new Chart(ctxDurability, {
-            type: 'bar',
+            type: 'pie', // Cambiado a tipo de gráfico de pastel
             data: dataDurability,
             options: options
         });

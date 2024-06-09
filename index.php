@@ -107,7 +107,7 @@
     <!--BOTÓN CONOCER-->
 
     <div class="boton-conocer">
-        <a href="#"><button>Ayúdanos</button></a>
+        <a href="comparadorUsuario.php"><button>Ayúdanos</button></a>
     </div>
 
     <!--TEXTO ALGUNO DE NUESTROS ANIMALES-->
@@ -129,86 +129,147 @@
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
-                            <p id="animal-nombre-1">Animal 1</p>
+                            <p id="animal-nombre-1">Lola</p>
                         </div>
                         <div class="TipoAnimal">
                             <h4>Tipo de Animal:</h4>
-                            <p id="animal-tipo-1">Tipo 1</p>
+                            <p id="animal-tipo-1">Perro</p>
                         </div>
                         <div class="SexoAnimal">
-                            <h4>Sexo de Animal:</h4>
-                            <p id="animal-sexo-1">Sexo 1</p>
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-1">12/03/2024</p>
                         </div>
                         <div class="EdadAnimal">
-                            <h4>Edad de Animal:</h4>
-                            <p id="animal-edad-1">Edad 1</p>
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-1">Galicia</p>
                         </div>
-                        <div class="DescripcionAnimal">
-                            <h4>Conóceme:</h4>
-                            <p id="animal-descripcion-1">Descripción 1</p>
-                        </div>
+
                     </div>
-                    <img id="animal-img-1" src="imgs/Vera_01.jpg" alt="Imagen del Animal 1">
+                    <img id="animal-img-1" src="imgsAnimales/Lola.jpg" alt="Imagen del Animal 1">
                 </a>
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
-                            <p id="animal-nombre-2">Animal 2</p>
+                            <p id="animal-nombre-2">Misi</p>
                         </div>
                         <div class="TipoAnimal">
                             <h4>Tipo de Animal:</h4>
-                            <p id="animal-tipo-2">Tipo 2</p>
+                            <p id="animal-tipo-2">Gato</p>
                         </div>
                         <div class="SexoAnimal">
-                            <h4>Sexo de Animal:</h4>
-                            <p id="animal-sexo-2">Sexo 2</p>
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-2">25/05/2024</p>
                         </div>
                         <div class="EdadAnimal">
-                            <h4>Edad de Animal:</h4>
-                            <p id="animal-edad-2">Edad 2</p>
-                        </div>
-                        <div class="DescripcionAnimal">
-                            <h4>Conóceme:</h4>
-                            <p id="animal-descripcion-2">Descripción 2</p>
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-2">Girona</p>
                         </div>
                     </div>
-                    <img id="animal-img-2" src="imgs/Mustang_01.jpg" alt="Imagen del Animal 2">
+                    <img id="animal-img-2" src="imgsAnimales/Misi.jpg" alt="Imagen del Animal 2">
                 </a>
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
-                            <p id="animal-nombre-3">Animal 3</p>
+                            <p id="animal-nombre-2">Sombra</p>
                         </div>
                         <div class="TipoAnimal">
                             <h4>Tipo de Animal:</h4>
-                            <p id="animal-tipo-3">Tipo 3</p>
+                            <p id="animal-tipo-2">Gecko</p>
                         </div>
                         <div class="SexoAnimal">
-                            <h4>Sexo de Animal:</h4>
-                            <p id="animal-sexo-3">Sexo 3</p>
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-2">05/02/2024</p>
                         </div>
                         <div class="EdadAnimal">
-                            <h4>Edad de Animal:</h4>
-                            <p id="animal-edad-3">Edad 3</p>
-                        </div>
-                        <div class="DescripcionAnimal">
-                            <h4>Conóceme:</h4>
-                            <p id="animal-descripcion-3">Descripción 3</p>
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-2">Valencia</p>
                         </div>
                     </div>
-                    <img id="animal-img-3" src="imgs/Trueno_01.jpg" alt="Imagen del Animal 3">
+                    <img id="animal-img-2" src="imgsAnimales/Sombra.jpg" alt="Imagen del Animal 2">
+                </a>
+            </div>
+
+            <div class="animal-info carrusel">
+                <a href="animalesFiltros.php">
+                    <div class="text-info">
+                        <div class="NombreAnimal">
+                            <h4>Nombre del Animal:</h4>
+                            <p id="animal-nombre-2">Azulito</p>
+                        </div>
+                        <div class="TipoAnimal">
+                            <h4>Tipo de Animal:</h4>
+                            <p id="animal-tipo-2">Betta</p>
+                        </div>
+                        <div class="SexoAnimal">
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-2">18/03/2024</p>
+                        </div>
+                        <div class="EdadAnimal">
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-2">Madrid</p>
+                        </div>
+                    </div>
+                    <img id="animal-img-2" src="imgsAnimales/Azulito.jpg" alt="Imagen del Animal 2">
+                </a>
+            </div>
+
+            <div class="animal-info carrusel">
+                <a href="animalesFiltros.php">
+                    <div class="text-info">
+                        <div class="NombreAnimal">
+                            <h4>Nombre del Animal:</h4>
+                            <p id="animal-nombre-2">Rio</p>
+                        </div>
+                        <div class="TipoAnimal">
+                            <h4>Tipo de Animal:</h4>
+                            <p id="animal-tipo-2">Guacamayo</p>
+                        </div>
+                        <div class="SexoAnimal">
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-2">30/03/2024</p>
+                        </div>
+                        <div class="EdadAnimal">
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-2">Granada</p>
+                        </div>
+
+                    </div>
+                    <img id="animal-img-2" src="imgsAnimales/Rio.jpg" alt="Imagen del Animal 2">
+                </a>
+            </div>
+
+            <div class="animal-info carrusel">
+                <a href="animalesFiltros.php">
+                    <div class="text-info">
+                        <div class="NombreAnimal">
+                            <h4>Nombre del Animal:</h4>
+                            <p id="animal-nombre-3">Bruno</p>
+                        </div>
+                        <div class="TipoAnimal">
+                            <h4>Tipo de Animal:</h4>
+                            <p id="animal-tipo-3">Perro</p>
+                        </div>
+                        <div class="SexoAnimal">
+                            <h4>Fecha de Adopción:</h4>
+                            <p id="animal-sexo-3">26/02/2024</p>
+                        </div>
+                        <div class="EdadAnimal">
+                            <h4>Lugar de Adopción:</h4>
+                            <p id="animal-edad-3">Zaragoza</p>
+                        </div>
+                    </div>
+                    <img id="animal-img-3" src="imgsAnimales/Bruno.jpg" alt="Imagen del Animal 3">
                 </a>
             </div>
         </div>
-
         <span id="siguiente" class="flecha">&rarr;</span>
     </div>
 
