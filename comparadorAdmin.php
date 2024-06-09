@@ -122,7 +122,7 @@ async function fetchCardDetails(palabraImg) {
 
     const response = await fetch(`modify_accesorio.php?palabraImg=${palabraImg}`);
         const data = await response.json();
-
+        
         modifyAccessorio(data);
     }
 
