@@ -53,7 +53,7 @@
 .form-container .labelCheckbox {
     display: flex;
     align-items: center;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 .form-container .labelCheckbox .input {
     margin-right: 10px;
@@ -76,7 +76,7 @@
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 16px;
 }
 .form-container .submit-button:hover {
@@ -157,7 +157,7 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    cursor: pointer;
+    /*cursor: pointer;*/
     display: none;
 }
 
@@ -200,7 +200,7 @@
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 16px;
 }
 

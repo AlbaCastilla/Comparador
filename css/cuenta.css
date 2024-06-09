@@ -1,4 +1,8 @@
 /* Estilos generales para el cuerpo */
+*{
+    margin: 0;
+    padding: 0;
+}
 .body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -43,7 +47,7 @@
     color: white;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 16px;
 }
 
@@ -97,7 +101,7 @@
 .ver-mas-button {
     background: none;
     border: none;
-    cursor: pointer;
+    /*cursor: pointer;*/
     outline: none;
     padding: 0;
     margin: 10px auto; /* Ajusta el espacio entre la flecha y los recibos y centra horizontalmente */
