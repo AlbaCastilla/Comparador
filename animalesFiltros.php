@@ -96,7 +96,7 @@
     $user = "root";
     $password = "";
     $baseDatos = "comparadorbd"; // base de datos buena
-    $puerto = 3366;
+    $puerto = 3306;
 
     $conexion = mysqli_connect($host, $user, $password, $baseDatos, $puerto);
 

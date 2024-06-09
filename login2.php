@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST['contrasena'];
 
     // Connect to the database
-    $conex = new mysqli('localhost:3366', 'root', '', 'comparadorbd');
+    $conex = new mysqli('localhost:3306', 'root', '', 'comparadorbd');
 
     // Check for connection errors
     if ($conex->connect_error) {
