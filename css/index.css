@@ -5,6 +5,7 @@
 
 body {
     background-color: #fff;
+    cursor: url('../cursor.png'), auto;
 }
 
 .nombreEmpresa {
@@ -254,7 +255,7 @@ body {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     border-radius: 8px;
     transition-duration: 0.4s;
     opacity: 0.5;
@@ -445,7 +446,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    /*cursor: pointer;*/
     transition: transform 0.3s ease;
 }
 
@@ -483,7 +484,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 24px;
     color: #333;
 }
@@ -825,7 +826,7 @@ body {
         display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
-        cursor: pointer;
+        /*cursor: pointer;*/
         border-radius: 8px;
         transition-duration: 0.4s;
         opacity: 0.5;
@@ -1032,7 +1033,7 @@ body {
         border-radius: 10px;
         overflow: hidden;
         position: relative;
-        cursor: pointer;
+        /*cursor: pointer;*/
         transition: transform 0.3s ease;
     }
 
@@ -1069,7 +1070,7 @@ body {
         position: absolute;
         top: 10px;
         right: 10px;
-        cursor: pointer;
+        /*cursor: pointer;*/
         font-size: 24px;
         color: #333;
     }
@@ -1420,7 +1421,7 @@ body {
         display: inline-block;
         font-size: 16px;
         margin: 4px 2px;
-        cursor: pointer;
+        /*cursor: pointer;*/
         border-radius: 8px;
         transition-duration: 0.4s;
         opacity: 0.5;
@@ -1635,7 +1636,7 @@ body {
         border-radius: 10px;
         overflow: hidden;
         position: relative;
-        cursor: pointer;
+        /*cursor: pointer;*/
         transition: transform 0.3s ease;
     }
 
@@ -1672,7 +1673,7 @@ body {
         position: absolute;
         top: 10px;
         right: 10px;
-        cursor: pointer;
+        /*cursor: pointer;*/
         font-size: 24px;
         color: #333;
     }

@@ -127,7 +127,7 @@ body {
     color: white;
     padding: 15px 25px;
     border: none;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .boton-conocer button:hover {
@@ -182,7 +182,7 @@ body {
     font-weight: Bold;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-left: 55%;
 }
 
@@ -201,7 +201,7 @@ body {
     font-weight: Bold;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-right: 55%;
 }
 
@@ -267,7 +267,7 @@ a {
 
 /* Estilos para las flechas */
 .flecha {
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 24px;
     padding: 10px;
     user-select: none;

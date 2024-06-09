@@ -13,6 +13,35 @@ if (session_status() === PHP_SESSION_NONE) {
     
     <script src="https://kit.fontawesome.com/07ca607712.js" crossorigin="anonymous"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Selecciona el elemento body
+    var body = document.querySelector("body");
+
+    // Oculta el cursor predeterminado
+    body.style.cursor = "none";
+
+    // Crea un nuevo elemento de imagen para el cursor
+    var customCursor = new Image();
+    customCursor.src = "cursor.png";
+    customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
+    customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
+    customCursor.style.zIndex = "9999"; 
+    // Establece el tamaño del cursor personalizado
+    var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
+    customCursor.width = tamañoCursor;
+    customCursor.height = tamañoCursor;
+
+    // Escucha eventos de movimiento del ratón
+    body.addEventListener("mousemove", function(event) {
+        // Actualiza la posición del cursor personalizado
+        customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
+        customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+    });
+
+    // Agrega el cursor personalizado al cuerpo del documento
+    body.appendChild(customCursor);
+
+});
 
 window.onscroll = scrollFunction;
 function scrollFunction() {
@@ -122,7 +151,7 @@ async function fetchCardDetails(palabraImg) {
 
     const response = await fetch(`modify_accesorio.php?palabraImg=${palabraImg}`);
         const data = await response.json();
-
+        
         modifyAccessorio(data);
     }
 
@@ -225,7 +254,7 @@ if ($resultPerros->num_rows > 0) {
         // Imprimir el div de la tarjeta con la clase correspondiente
         echo '<div class="div ' . $cardClass . '" onclick="toggleSelectCard(this, \'' . $row["palabraImg"] . '\')">';
         echo '<button id="boton-eliminar-accesorio"  onclick="eliminateCard(this, \'' . $row["palabraImg"] . '\')"';
-        echo '<i class="fa-solid fa-trash"></i>';
+        echo '<i class="fa-solid fa-trash i"></i>';
         echo '</button>';
         echo '<h2 class="h2">' . $row["tipoJuguete"] . '</h2>';
         echo '<div class="caja-imagenes-comparador div"><img src="imgsComparador/' . $row["palabraImg"] . '.jpg" alt="' . $row["tipoJuguete"] . '" class="img"></div>';

@@ -6,6 +6,35 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/tarjetas_comparar_grande.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+    // Selecciona el elemento body
+    var body = document.querySelector("body");
+
+    // Oculta el cursor predeterminado
+    body.style.cursor = "none";
+
+    // Crea un nuevo elemento de imagen para el cursor
+    var customCursor = new Image();
+    customCursor.src = "cursor.png";
+    customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
+    customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
+    customCursor.style.zIndex = "9999"; 
+    // Establece el tamaño del cursor personalizado
+    var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
+    customCursor.width = tamañoCursor;
+    customCursor.height = tamañoCursor;
+
+    // Escucha eventos de movimiento del ratón
+    body.addEventListener("mousemove", function(event) {
+        // Actualiza la posición del cursor personalizado
+        customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
+        customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+    });
+
+    // Agrega el cursor personalizado al cuerpo del documento
+    body.appendChild(customCursor);
+
+});</script>
 </head>
 <body class="body">
     <?php include "includes/navbar.php"; ?>
@@ -121,36 +150,35 @@
     </div>
 
     <script>
-    // Verifica si las filas existen antes de usar sus datos
     <?php if ($row1 && $row2): ?>
-    const details1 = {
-        reviews: <?php echo $row1['reviews']; ?>,
-        tipoJuguete: '<?php echo $row1['tipoJuguete']; ?>',
-        durabilidadGrafico: <?php echo $row1['durabilidadGrafico']; ?>,
-        facilidadLimpiezaGrafico: <?php echo $row1['facilidadLimpiezaGrafico']; ?>,
-        impactoAmbientalGrafico: <?php echo $row1['impactoAmbientalGrafico']; ?>,
-        estiloGrafico: <?php echo $row1['estiloGrafico']; ?>
-    };
+        const details1 = {
+            reviews: <?php echo $row1['reviews']; ?>,
+            tipoJuguete: '<?php echo $row1['tipoJuguete']; ?>',
+            durabilidadGrafico: <?php echo $row1['durabilidadGrafico']; ?>,
+            facilidadLimpiezaGrafico: <?php echo $row1['facilidadLimpiezaGrafico']; ?>,
+            impactoAmbientalGrafico: <?php echo $row1['impactoAmbientalGrafico']; ?>,
+            estiloGrafico: <?php echo $row1['estiloGrafico']; ?>
+        };
 
-    const details2 = {
-        reviews: <?php echo $row2['reviews']; ?>,
-        tipoJuguete: '<?php echo $row2['tipoJuguete']; ?>',
-        durabilidadGrafico: <?php echo $row2['durabilidadGrafico']; ?>,
-        facilidadLimpiezaGrafico: <?php echo $row2['facilidadLimpiezaGrafico']; ?>,
-        impactoAmbientalGrafico: <?php echo $row2['impactoAmbientalGrafico']; ?>,
-        estiloGrafico: <?php echo $row2['estiloGrafico']; ?>
-    };
+        const details2 = {
+            reviews: <?php echo $row2['reviews']; ?>,
+            tipoJuguete: '<?php echo $row2['tipoJuguete']; ?>',
+            durabilidadGrafico: <?php echo $row2['durabilidadGrafico']; ?>,
+            facilidadLimpiezaGrafico: <?php echo $row2['facilidadLimpiezaGrafico']; ?>,
+            impactoAmbientalGrafico: <?php echo $row2['impactoAmbientalGrafico']; ?>,
+            estiloGrafico: <?php echo $row2['estiloGrafico']; ?>
+        };
 
-    const dataDurability = {
+        const dataDurability = {
             labels: ['Durabilidad', 'Facilidad de limpieza', 'Impacto ambiental', 'Estilo'],
             datasets: [{
-                label: '<?php echo $details1["tipoJuguete"]; ?>',
+                label: details1.tipoJuguete,
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 1,
                 data: [details1.durabilidadGrafico, details1.facilidadLimpiezaGrafico, details1.impactoAmbientalGrafico, details1.estiloGrafico]
             }, {
-                label: '<?php echo $details2["tipoJuguete"]; ?>',
+                label: details2.tipoJuguete,
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgb(54, 162, 235)',
                 borderWidth: 1,
@@ -161,13 +189,13 @@
         const dataReviews = {
             labels: ['Reseñas'],
             datasets: [{
-                label: '<?php echo $details1["tipoJuguete"]; ?>',
+                label: details1.tipoJuguete,
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 borderWidth: 1,
                 data: [details1.reviews]
             }, {
-                label: '<?php echo $details2["tipoJuguete"]; ?>',
+                label: details2.tipoJuguete,
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
                 borderColor: 'rgb(54, 162, 235)',
                 borderWidth: 1,

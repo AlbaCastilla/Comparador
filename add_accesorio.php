@@ -48,7 +48,7 @@ if (move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file)) {
             VALUES ('$tipoJuguete', '$material', '$tamanio', '$color', '$descripcion', '$instrucciones', '$palabraImg', '$durabilidad', '$reviews', '$precio', '$durabilidadGrafico', '$impactoAmbientalGrafico', '$facilidadLimpiezaGrafico', '$estiloGrafico', '$reviewsGrafico', '$numComentarios','$urgente')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: comparadorAdmin2.php");
+        header("Location: comparadorAdmin.php");
                     exit();
     } else {
          echo "Error:  . $sql . <br> . $conn->error)";
