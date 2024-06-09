@@ -12,6 +12,35 @@ if (session_status() === PHP_SESSION_NONE) {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Selecciona el elemento body
+    var body = document.querySelector("body");
+
+    // Oculta el cursor predeterminado
+    body.style.cursor = "none";
+
+    // Crea un nuevo elemento de imagen para el cursor
+    var customCursor = new Image();
+    customCursor.src = "cursor.png";
+    customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
+    customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
+    customCursor.style.zIndex = "9999"; 
+    // Establece el tamaño del cursor personalizado
+    var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
+    customCursor.width = tamañoCursor;
+    customCursor.height = tamañoCursor;
+
+    // Escucha eventos de movimiento del ratón
+    body.addEventListener("mousemove", function(event) {
+        // Actualiza la posición del cursor personalizado
+        customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
+        customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+    });
+
+    // Agrega el cursor personalizado al cuerpo del documento
+    body.appendChild(customCursor);
+
+});
 window.addEventListener('resize', function() {
     const canvas = document.getElementById('durabilityChart');
     const containerWidth = canvas.parentElement.offsetWidth;

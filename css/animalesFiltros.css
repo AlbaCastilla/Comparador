@@ -51,7 +51,7 @@
 .contenedorSelect .input[type="submit"] {
     width: 100%;
     max-width: 250px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     padding: 7px 10px;
     height: 42px;
     outline: 0;
@@ -125,7 +125,7 @@
 }
 
 .masInfo {
-    cursor: pointer;
+    /*cursor: pointer;*/
     width: 100%;
     border-radius: 16px;
     border: none;
@@ -217,7 +217,7 @@
 }
 
 #btnCerrarEmergente {
-    cursor: pointer;
+    /*cursor: pointer;*/
     font-size: 28px;
     color: #aaa;
 }
@@ -240,7 +240,7 @@
     color: #fff; /* Color del texto del botón */
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+   /* cursor: pointer;*/
 }
 
 .button-izquierdo-inferior:hover {
