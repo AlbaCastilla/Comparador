@@ -107,7 +107,7 @@
     <!--BOTÓN CONOCER-->
 
     <div class="boton-conocer">
-        <a href="#"><button>Ayúdanos</button></a>
+        <a href="comparadorUsuario.php"><button>Ayúdanos</button></a>
     </div>
 
     <!--TEXTO ALGUNO DE NUESTROS ANIMALES-->
@@ -150,7 +150,7 @@
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
@@ -174,7 +174,7 @@
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
@@ -198,7 +198,7 @@
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
@@ -222,7 +222,7 @@
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
@@ -247,7 +247,7 @@
             </div>
 
             <div class="animal-info carrusel">
-                <a href="login.php">
+                <a href="animalesFiltros.php">
                     <div class="text-info">
                         <div class="NombreAnimal">
                             <h4>Nombre del Animal:</h4>
