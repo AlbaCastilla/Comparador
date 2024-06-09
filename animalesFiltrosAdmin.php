@@ -11,9 +11,25 @@ if (session_status() === PHP_SESSION_NONE) {
         <link class="link" rel="stylesheet" href="css/animalesFiltrosAdmin.css">
     </head>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+     function eliminateCard(nombreAnimal) {
+    event.stopPropagation();
+    console.log("Nombre del animal seleccionado para eliminar:", nombreAnimal); // Agregar esta línea para verificar el nombre del animal
+    if (nombreAnimal != undefined) {
+        eliminateCardConnect(nombreAnimal);
+    }
+}
+
+async function eliminateCardConnect(nombreAnimal) {
+    console.log("llega a la función de consulta", nombreAnimal);
+    const response1 = await fetch(`eliminarAnimal.php?NombreAnimal=${nombreAnimal}`);
+    // Procesar la respuesta de la petición
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
     // Obtener todas las tarjetas de animales
     let tarjetasAnimales = document.querySelectorAll('.card');
+    let lastSelectedCard = null;
 
     // Agregar un evento de clic a cada tarjeta de animal
     tarjetasAnimales.forEach(function(tarjeta) {
@@ -24,29 +40,54 @@ if (session_status() === PHP_SESSION_NONE) {
             // Imprimir el nombre del animal en la consola
             console.log("Nombre del animal seleccionado: " + nombreAnimal);
 
-            // Ocultar el formulario 2 (supongo que lo estás mostrando aquí)
-            var formContainer2 = document.getElementById('form-container2');
-            formContainer2.style.display = 'block';
-            sacarAnimal(nombreAnimal);
-
-            // Remover la clase 'selected' de todas las tarjetas
-            tarjetasAnimales.forEach(function(tarjeta) {
+            // Si se hace clic en la misma tarjeta, se quita la clase 'selected' y se oculta el formulario
+            if (lastSelectedCard === tarjeta) {
                 tarjeta.classList.remove('selected');
-            });
+                lastSelectedCard = null;
+                document.getElementById('form-container2').style.display = 'none';
+            } else {
+                // Ocultar el formulario 2 (supongo que lo estás mostrando aquí)
+                var formContainer2 = document.getElementById('form-container2');
+                formContainer2.style.display = 'block';
+                sacarAnimal(nombreAnimal);
 
-            // Agregar la clase 'selected' a la tarjeta seleccionada
-            tarjeta.classList.add('selected');
+                // Remover la clase 'selected' de todas las tarjetas
+                tarjetasAnimales.forEach(function(tarjeta) {
+                    tarjeta.classList.remove('selected');
+                });
+
+                // Agregar la clase 'selected' a la tarjeta seleccionada
+                tarjeta.classList.add('selected');
+                lastSelectedCard = tarjeta;
+            }
+        });
+
+        // Agregar evento de eliminación al botón de eliminación en cada tarjeta
+        let deleteButton = tarjeta.querySelector('.deleteButton');
+        deleteButton.addEventListener('click', function(event) {
+            eliminateCard(nombreAnimal);
         });
     });
+    document.getElementById('button-izquierdo-inferior').addEventListener('click', function() {
+        var formContainer2 = document.getElementById('form-container2');
+        formContainer2.style.display = 'block';
+        formContainer2.scrollIntoView({ behavior: 'smooth' });
+    });
+    document.getElementById('button-derecho-inferior').addEventListener('click', function() {
+        var formContainer2 = document.getElementById('form-container');
+        formContainer2.style.display = 'block';
+        formContainer2.scrollIntoView({ behavior: 'smooth' });
+    });
 });
-async function sacarAnimal(nombreAnimal){
+
+
+async function sacarAnimal(nombreAnimal) {
     console.log(nombreAnimal);
     const response = await fetch(`get_animal_data.php?NombreAnimal=${nombreAnimal}`);
-        const data = await response.json();
+    const data = await response.json();
 
-       console.log(data);
-       showData(data)
-
+    console.log(data);
+    showData(data);
 }
 function showData(data){
 document.getElementById("nombre2").value = data.NombreAnimal;
@@ -141,9 +182,9 @@ document.getElementById("etapa2").value = data.Etapa;
     <div class="tituloFiltros div">
         <h2 class="h2">FILTROS DE BUSQUEDA</h2>
     </div>
-    <button class='button-izquierdo-inferior' id="button-izquierdo-inferior">Modificar</button>
+    <button class='button-izquierdo-inferior' id="button-izquierdo-inferior" href="#form-container2">Modificar</button>
 
-    <button class="button-derecho-inferior" onclick="mostrarFormulario()">Añadir Animal</button>
+    <button class="button-derecho-inferior" id="button-derecho-inferior">Añadir Animal</button>
 
     <input type="hidden" id="nombreAnimalSeleccionado">
 
@@ -189,7 +230,7 @@ document.getElementById("etapa2").value = data.Etapa;
             <input class="input" type="submit" value="Mostrar" id="btnconsultar">
 
         </div>
-    </form>
+    </form>*/
 
     <div class="contenedorTarjetasAnimales div">
         <?php
