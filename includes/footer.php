@@ -14,10 +14,21 @@
             </div>
 
             <div class="box">
-                <h6>CREATE UNA CUENTA</h6>
-                <p>Lorem ipsum dolor sit amet consectetur adipsicing elit. Odio, ipsa?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipsicing elit. Odio, ipsa?</p>
-                <p>Aqui escriibimos el proposito de crearse una cuenta con nosotros</p>
+                <h6>Contáctanos</h6>
+                <p>El Refugio de Animales se dedica a rescatar y cuidar animales abandonados,
+                proporcionándoles un hogar temporal y buscando familias adoptivas.</p> 
+                <p>Ofrecemos servicios de esterilización, vacunación y atención médica básica.</p>
+                <br>
+                <p>Ven a visitarnos y haz la diferencia en la vida de un animal. </p>
+                <hr>
+                <br>
+                <li><strong> Correo electrónico:</strong> refugio.de.animales@gmail.com</li>
+                <li><strong> Teléfono:</strong> +34 600 123 456</li>
+
+                
+
+
+
             </div>
             <div class="box3">
                 <div class="arriba">
