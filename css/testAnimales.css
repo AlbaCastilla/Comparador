@@ -4,6 +4,9 @@
     font-family: "Trebuchet MS";
     align-items: center;
 }
+.footer{
+    margin-top: 5%;
+}
 
 /*TAMAÑO MOVIL*/
 @media only screen and (max-width: 766px){

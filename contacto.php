@@ -52,7 +52,7 @@
         <img class="img huellaTitulo" src="imgsTEST/huella.png" alt="imagen">
 
         <div class="div titulo">
-            <h2 class="h2 t-stroke t-shadow">DESCUBRE TU ANIMAL IDEAL</h2>
+            <h2 class="h2 t-stroke ">DESCUBRE TU ANIMAL IDEAL</h2>
         </div>
         <br class="br">
     </div>
@@ -355,10 +355,11 @@
 
 <div class="div" id="resultadoRespuestaTest2"></div>
 
-
-
-</body>
-    <?php
+<div class="footer">
+<?php
         include "includes/footer.php";
     ?>
+</div>
+</body>
+    
 </html>
