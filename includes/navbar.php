@@ -38,7 +38,7 @@ $cuentaHref = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ? '
             <li><a  href="index.php">¿Quiénes Somos?</a></li>
             <li><a href="<?php echo $animalesHref; ?>">Animales</a></li>
             <li><a href="<?php echo $accesoriosHref; ?>">Accesorios</a></li>
-            <li><a href="contacto.php">Contacto</a></li>
+            <li><a href="contacto.php">Tu compañero ideal</a></li>
             <li><a href="<?php echo $cuentaHref; ?>"> <i class="i fa-solid fa-user icon-blanco"></i></a></li>
         </ul>
     </nav>

@@ -6,35 +6,53 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/tarjetas_comparar_grande.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", function() {
-    // Selecciona el elemento body
-    var body = document.querySelector("body");
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
 
-    // Oculta el cursor predeterminado
-    body.style.cursor = "none";
+        .chart1-container, .chart2-container {
+            width: 40%; /* Ajusta el tamaño del contenedor */
+        }
 
-    // Crea un nuevo elemento de imagen para el cursor
-    var customCursor = new Image();
-    customCursor.src = "cursor.png";
-    customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
-    customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
-    customCursor.style.zIndex = "9999"; 
-    // Establece el tamaño del cursor personalizado
-    var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
-    customCursor.width = tamañoCursor;
-    customCursor.height = tamañoCursor;
+        .canvas {
+            width: 100% !important; /* Hace que el canvas se ajuste al contenedor */
+            height: auto !important;
+        }
+    </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Selecciona el elemento body
+        var body = document.querySelector("body");
 
-    // Escucha eventos de movimiento del ratón
-    body.addEventListener("mousemove", function(event) {
-        // Actualiza la posición del cursor personalizado
-        customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
-        customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+        // Oculta el cursor predeterminado
+        body.style.cursor = "none";
+
+        // Crea un nuevo elemento de imagen para el cursor
+        var customCursor = new Image();
+        customCursor.src = "cursor.png";
+        customCursor.style.position = "fixed"; // Asegura que el cursor se muestre correctamente
+        customCursor.style.pointerEvents = "none"; // Evita que el cursor personalizado capture eventos de ratón
+        customCursor.style.zIndex = "9999"; 
+        // Establece el tamaño del cursor personalizado
+        var tamañoCursor = 20; // Tamaño del cursor personalizado en píxeles
+        customCursor.width = tamañoCursor;
+        customCursor.height = tamañoCursor;
+
+        // Escucha eventos de movimiento del ratón
+        body.addEventListener("mousemove", function(event) {
+            // Actualiza la posición del cursor personalizado
+            customCursor.style.left = (event.clientX - tamañoCursor / 2) + "px";
+            customCursor.style.top = (event.clientY - tamañoCursor / 2) + "px";
+        });
+
+        // Agrega el cursor personalizado al cuerpo del documento
+        body.appendChild(customCursor);
+
     });
-
-    // Agrega el cursor personalizado al cuerpo del documento
-    body.appendChild(customCursor);
-
-});</script>
+    </script>
 </head>
 <body class="body">
     <?php include "includes/navbar.php"; ?>
@@ -140,11 +158,11 @@
         <div class="chart-container">
             <div class="chart1-container">
                 <h3 class="h3">Media de evaluación integral de los productos</h3>
-                <canvas id="durabilityChart" class="canvas"></canvas>
+                <canvas id="durabilityChart" class="canvas" width="400" height="200"></canvas> <!-- Ajusta el tamaño del canvas -->
             </div>
-            <div>
+            <div class="chart2-container">
                 <h3 class="h3">Porcentaje de comparación entre productos, evaluación general</h3>
-                <canvas id="reviewsChart" class="canvas"></canvas>
+                <canvas id="reviewsChart" class="canvas" width="400" height="200"></canvas> <!-- Ajusta el tamaño del canvas -->
             </div>
         </div>
     </div>
@@ -203,7 +221,7 @@
             }]
         };
 
-        const options = {
+        const optionsDurability = {
             scales: {
                 y: {
                     beginAtZero: true,
@@ -218,18 +236,33 @@
             }
         };
 
+        const optionsReviews = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        callback: function(value) {
+                            return value;
+                        }
+                    }
+                }
+            }
+        };
+
         const ctxDurability = document.getElementById('durabilityChart').getContext('2d');
         new Chart(ctxDurability, {
             type: 'bar',
             data: dataDurability,
-            options: options
+            options: optionsDurability
         });
 
         const ctxReviews = document.getElementById('reviewsChart').getContext('2d');
         new Chart(ctxReviews, {
             type: 'bar',
             data: dataReviews,
-            options: options
+            options: optionsReviews
         });
     <?php endif; ?>
     </script>
