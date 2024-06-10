@@ -28,8 +28,7 @@
     font-size: 1.5em;
     margin: 0;
     padding: 15px;
-    background-color: #007BFF;
-    color: white;
+    color: black;
     text-align: center;
 }
 
@@ -58,7 +57,7 @@
     width: calc(100% - 30px);
     margin: 15px auto;
     padding: 10px 0;
-    background-color: #28a745;
+    background-color:#5B8869;
     color: white;
     text-align: center;
     border: none;
@@ -68,5 +67,19 @@
 }
 
 .boton:hover {
-    background-color: #218838;
+    background-color:#5B8869;
+}
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.chart1-container, .chart2-container {
+    width: 20%; /* Ajusta el tamaño del contenedor */
+}
+
+.canvas {
+    width: 100% !important; /* Hace que el canvas se ajuste al contenedor */
+    height: auto !important;
 }
