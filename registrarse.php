@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST['contrasena'];
 
     // Hash de la contraseña para mayor seguridad
-    $hashed_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
+    //$hashed_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
 
     // Conectar a la base de datos (modifica los parámetros según tu configuración)
     $conex = new mysqli('localhost:3306', 'root', '', 'comparadorbd');
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_msg = "El correo electrónico ya está registrado. Por favor, utilice otro correo.";
     } else {
         // Preparar la consulta SQL para insertar los datos en la tabla usuarios
-        $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$hashed_contrasena')";
+        $sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES ('$nombre', '$correo', '$contrasena')";
 
         // Ejecutar la consulta
         if ($conex->query($sql) === TRUE) {
