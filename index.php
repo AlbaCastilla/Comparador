@@ -114,7 +114,7 @@
 
     <div class="textoTitulo2">
         <div class="antes"></div>
-        <h1>Alguno de nuestros animales</h1>
+        <h1>Algunos de nuestros animales adoptados</h1>
         <div class="despues"></div>
     </div>
 

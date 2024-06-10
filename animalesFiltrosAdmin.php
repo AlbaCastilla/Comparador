@@ -259,7 +259,7 @@ document.getElementById("etapa2").value = data.Etapa;
             <input class="input" type="submit" value="Mostrar" id="btnconsultar">
 
         </div>
-    </form>*/
+    </form>
 
     <div class="contenedorTarjetasAnimales div">
         <?php
